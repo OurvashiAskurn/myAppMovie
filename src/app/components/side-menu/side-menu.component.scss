@@ -1,0 +1,27 @@
+.menu-container {
+  padding: 1vw;
+  margin-top: 0;
+  margin-left: -0.5vw;
+  color: white;
+  background-color: #101731;
+  width: 20%;
+  min-height: 55vw;
+
+  .menu-list {
+    display: block;
+    padding: 1.5vw 3vw;
+    cursor: pointer;
+
+      &.selected {
+             background-color: #1d2959;
+             color: red;
+      }
+  }
+
+  .menu-list:hover {
+    background-color:  #1d2959;
+  }
+
+}
+
+

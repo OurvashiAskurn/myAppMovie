@@ -1,0 +1,99 @@
+<div class="viewMovies">
+  <div class="movieCategory">
+    <div class="subTitle"> {{ displayValue }} </div>
+  </div>
+
+<app-side-menu [id]="displayValue" (valueEmitted)="onValueEmitted($event)"></app-side-menu>
+
+
+
+ <div *ngIf="displayValue === 'New Release' ">
+    <div class="movieContainer">
+      <div  *ngFor="let new_release of newRelease">
+
+        <div class="movieContent">
+          <img src="{{ new_release.imgUrl}}" alt=""><br>
+          <b>{{ new_release.name}}</b><br>
+          <span class="subDivision">Genre: {{ new_release.genre}}</span><br>
+          <span class="subDivision">Rating: <span class="rating">{{ new_release.rating}} <span class="star"> <img src="https://www.clker.com/cliparts/p/i/0/Y/B/m/large-yellow-star-md.png" alt=""></span></span></span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <div *ngIf="displayValue === 'Trending' ">
+    <div class="movieContainer">
+      <div  *ngFor="let trend of trending">
+
+        <div class="movieContent">
+          <img src="{{ trend.imgUrl}}" alt=""><br>
+          <b>{{ trend.name}}</b><br>
+          <span class="subDivision" >Genre: {{ trend.genre}}</span><br>
+          <span class="subDivision">Rating: <span class="rating">{{ trend.rating}} <span class="star"> <img src="https://www.clker.com/cliparts/p/i/0/Y/B/m/large-yellow-star-md.png" alt=""></span></span></span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <div *ngIf="displayValue === 'Coming Soon' ">
+    <div class="movieContainer">
+      <div  *ngFor="let coming_soon of comingSoon">
+
+        <div class="movieContent">
+          <img src="{{ coming_soon.imgUrl}}" alt=""><br>
+          <b>{{ coming_soon.name}}</b><br>
+          <span class="subDivision" >Genre: {{ coming_soon.genre}}</span><br>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <div *ngIf="displayValue === 'Favourites' ">
+    <div class="movieContainer">
+      <div  *ngFor="let favourite of favourites">
+
+        <div class="movieContent">
+          <img src="{{ favourite.imgUrl}}" alt=""><br>
+          <b>{{ favourite.name}}</b><br>
+          <span class="subDivision" >Genre: {{ favourite.genre}}</span><br>
+          <span class="subDivision">Rating: <span class="rating">{{ favourite.rating}} <span class="star"> <img src="https://www.clker.com/cliparts/p/i/0/Y/B/m/large-yellow-star-md.png" alt=""></span></span></span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <div *ngIf="displayValue === 'Watch Later ' ">
+    <div class="movieContainer">
+      <div  *ngFor="let watch_later of watchLater">
+
+        <div class="movieContent">
+          <img src="{{ watch_later.imgUrl}}" alt=""><br>
+          <b>{{ watch_later.name}}</b><br>
+          <span class="subDivision" >Genre: {{ watch_later.genre}}</span><br>
+          <span class="subDivision">Rating: <span class="rating">{{ watch_later.rating}} <span class="star"> <img src="https://www.clker.com/cliparts/p/i/0/Y/B/m/large-yellow-star-md.png" alt=""></span></span></span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+

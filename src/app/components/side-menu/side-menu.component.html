@@ -1,0 +1,3 @@
+<div class="menu-container">
+  <a class="menu-list" *ngFor="let category of movieCategory" (click)="retrieveName(category)" [class.selected]="categorySelected === category">{{ category }}</a>
+</div>

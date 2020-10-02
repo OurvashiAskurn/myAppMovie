@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "myAppMovie"
+    }
+  },
+  "defaultProject": "myAppMovie",
+  "cli": {
+    "analytics": false
+  }
 }
