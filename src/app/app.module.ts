@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SideMenuComponent } from './components/side-menu/side-menu.component';
 import { ListOfMoviesComponent } from './components/list-of-movies/list-of-movies.component';
+import { HomePageComponent } from './components/home-page/home-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     SideMenuComponent,
-    ListOfMoviesComponent
+    ListOfMoviesComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
