@@ -5,7 +5,8 @@
   .movieCategory {
     position: absolute;
     margin-left: 30%;
-    margin-top: 3%;
+    margin-top: 7%;
+    padding-bottom: 10vw;
 
     .subTitle {
       font-size: 2vw;
@@ -15,7 +16,6 @@
 
   .movieContainer {
     margin-left: 21.5%;
-    margin-top: -50vw;
     height: 36vw;
     padding: 0.5vw 4vw 2vw;
     display: flex;
@@ -24,7 +24,8 @@
 
     .movieContent {
       width: 14vw;
-      height: 20vw;
+      min-height: 19.5vw;
+      padding-bottom: 0.5vw;
       margin-left: 2.6vw;
       margin-bottom: 4vw;
       background-color: white;
@@ -32,13 +33,14 @@
       box-shadow: 0.2vw 0.2vw 0.2vw rgb(102, 101, 101);
 
       b {
-        margin-left: 1.5vw;
+        padding-left: 1.5vw;
         line-height: 1.2vw;
       }
 
-      img {
+      .poster {
         width: 13vw;
-        height: 15vw;
+        min-height: 15vw;
+        max-height: 15vw;
         margin-top: 0.5vw;
         margin-left: 0.5vw;
         margin-bottom: 0.5vw;

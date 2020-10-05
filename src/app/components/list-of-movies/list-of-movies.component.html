@@ -6,21 +6,21 @@
 <app-side-menu [id]="displayValue" (valueEmitted)="onValueEmitted($event)"></app-side-menu>
 
 
-
- <div *ngIf="displayValue === 'New Release' ">
+<br><br><br><br><br><br><br><br><br><br><br>
+ <!--<div *ngIf="displayValue === 'New Release' "> -->
     <div class="movieContainer">
-      <div  *ngFor="let new_release of newRelease">
+      <div  *ngFor="let movie of movies">
 
         <div class="movieContent">
-          <img src="{{ new_release.imgUrl}}" alt=""><br>
-          <b>{{ new_release.name}}</b><br>
-          <span class="subDivision">Genre: {{ new_release.genre}}</span><br>
-          <span class="subDivision">Rating: <span class="rating">{{ new_release.rating}} <span class="star"> <img src="https://www.clker.com/cliparts/p/i/0/Y/B/m/large-yellow-star-md.png" alt=""></span></span></span>
+          <img src="{{ movie.imageUrl }}" alt="Not available" class="poster"><br>
+          <b>{{ movie.title }}</b><br>
+          <span class="subDivision">Genre: {{ movie.genres }}</span><br>
+          <span class="subDivision">Rating: <span class="rating">{{ movie.rating}} <span class="star"> <img src="https://www.clker.com/cliparts/p/i/0/Y/B/m/large-yellow-star-md.png" alt=""></span></span></span>
         </div>
 
       </div>
     </div>
-  </div>
+  <!-- </div>
 
 
   <div *ngIf="displayValue === 'Trending' ">
@@ -83,7 +83,7 @@
 
       </div>
     </div>
-  </div>
+  </div>-->
 
 
 

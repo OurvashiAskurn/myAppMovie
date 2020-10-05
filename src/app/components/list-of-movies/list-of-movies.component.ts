@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ɵɵqueryRefresh } from '@angular/core';
+import { MovieService } from '../../providers/movie.service';
+import Movie from '../../dto/movie';
 
 @Component({
   selector: 'app-list-of-movies',
@@ -13,14 +15,20 @@ export class ListOfMoviesComponent implements OnInit {
   comingSoon: any[];
   favourites: any[];
   watchLater: any[];
+  movies: Movie[];
+  movieList: Movie[];
 
-  constructor() {
+  constructor(private _moviesService: MovieService) {
     this.displayValue = '';
+    this.movies = [];
+    this.movieList = [];
   }
 
   ngOnInit() {
     this.displayValue = 'New Release';
-    this.newRelease = [
+    this.getMovies();
+
+   /* this.newRelease = [
       {id: 0, name: "Mulan", imgUrl:"https://image.tmdb.org/t/p/w154/aKx1ARwG55zZ0GpRvU2WrGrCG9o.jpg", genre:["Action", " Family"], rating: 5.4},
       {id: 1, name: "Société Secrète de la Royauté ", imgUrl:"https://image.tmdb.org/t/p/w300/iqzBA6CHQoJU5OQqzJnYGT6RBop.jpg",genre:["Action", " Comedy", " Fantasy"], rating: 3.8},
       {id: 2, name: "One Night in Bangkok", imgUrl:"https://image.tmdb.org/t/p/w300/i4kPwXPlM1iy8Jf3S1uuLuwqQAV.jpg",genre:["Action", " Thriller"], rating: 4.9},
@@ -55,13 +63,30 @@ export class ListOfMoviesComponent implements OnInit {
       {id: 0, name: "Mulan", imgUrl:"https://image.tmdb.org/t/p/w154/aKx1ARwG55zZ0GpRvU2WrGrCG9o.jpg", genre:["Action", " Family"], rating: 5.4},
       {id: 1, name: "Escape from Pretoria", imgUrl:"https://image.tmdb.org/t/p/w185/atDtQJuleMmIdXyqtcaMuxXq7Vj.jpg",genre:["Biopic", " Thriller"], rating: 6.8},
       {id: 2, name: "Matrix", imgUrl:"https://image.tmdb.org/t/p/w185/pEoqbqtLc4CcwDUDqxmEDSWpWTZ.jpg",genre:["Action", " Science Fiction"], rating: 8.7}
-    ];
+    ];*/
 
 
   }
 
   onValueEmitted(valueEmitted: any) {
     this.displayValue = valueEmitted;
+
   }
+
+  getMovies() {
+    this._moviesService.getMoviesList().subscribe((data: any) => {
+      console.log(data);
+
+      data.forEach((element: any) => {
+        const movie: Movie = new Movie();
+        movie.title = element.title;
+        movie.genres = element.genres;
+        movie.imageUrl = element.posterurl;
+        movie.rating = element.imdbRating;
+        this.movies.push(movie);
+      });
+    });
+  }
+
 
 }
