@@ -16,25 +16,15 @@
     width: 70%;
     text-align: center;
 
-    .searchInput {
-      padding: 0.5vw 1vw;
-      font-size: 1.2vw;
-      width: 70%;
-      border: 0vw;
-      background-color: #ff6590;
-      margin-top: -0.4vw;
-      margin-bottom: -1.3vw;
+    .search_icon img{
+      width: 2vw;
+      margin-left: 2vw;
+      margin-top: -0.2vw;
+      opacity: 0.4;
+      margin-bottom: -0.8vw;
+      float: left;
     }
 
-    .searchBtn {
-      padding: 0.4vw 1vw;
-      font-size: 1.2vw;
-      background-color: #ff6590;
-      margin-top: -0.4vw;
-      margin-bottom: -1.3vw;
-      border: 0.2vw solid  #cf2253;
-      color: white;
-    }
   }
 
   .container3 {
