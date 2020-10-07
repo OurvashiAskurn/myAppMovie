@@ -9,9 +9,10 @@ import { SideMenuComponent } from './components/side-menu/side-menu.component';
 import { ListOfMoviesComponent } from './components/list-of-movies/list-of-movies.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { MovieService } from './providers/movie.service';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {  NgSelectModule } from '@ng-select/ng-select';
 import { SearchComponent } from './components/search/search.component';
+import { AngularMaterialModule } from './angular-material.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,9 @@ import { SearchComponent } from './components/search/search.component';
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    NgSelectModule
+    ReactiveFormsModule,
+    NgSelectModule,
+    AngularMaterialModule
   ],
   providers: [
     MovieService
