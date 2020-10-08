@@ -6,22 +6,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SideMenuComponent } from './components/side-menu/side-menu.component';
-import { ListOfMoviesComponent } from './components/list-of-movies/list-of-movies.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { MovieService } from './providers/movie.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {  NgSelectModule } from '@ng-select/ng-select';
 import { SearchComponent } from './components/search/search.component';
 import { AngularMaterialModule } from './angular-material.module';
+import { SearchBarComponent } from './components/search-bar/search-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     SideMenuComponent,
-    ListOfMoviesComponent,
     HomePageComponent,
-    SearchComponent
+    SearchComponent,
+    SearchBarComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +28,6 @@ import { AngularMaterialModule } from './angular-material.module';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    NgSelectModule,
     AngularMaterialModule
   ],
   providers: [

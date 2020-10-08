@@ -1,3 +1,28 @@
-<app-header></app-header>
 
-<app-list-of-movies></app-list-of-movies>
+<app-header (emittedT)="getValue($event)"></app-header>
+
+<div class="viewMovies">
+  <div class="movieCategory">
+    <div class="subTitle"> {{ displayValue }} </div>
+  </div>
+
+<app-side-menu [id]="displayValue" (valueEmitted)="onValueEmitted($event)"></app-side-menu>
+
+
+<br><br><br><br><br><br><br><br><br><br><br>
+    <div class="movieContainer">
+      <div  *ngFor="let movie of filterList">
+
+        <div class="movieContent">
+          <img src="{{ movie.imageUrl }}" alt="Not available" class="poster"><br>
+          <b>{{ movie.title }}</b><br>
+          <span class="subDivision">Genre: {{ movie.genres }}</span><br>
+          <span class="subDivision">Rating: <span class="rating">{{ movie.rating}} <span class="star"> <img src="https://www.clker.com/cliparts/p/i/0/Y/B/m/large-yellow-star-md.png" alt=""></span></span></span>
+        </div>
+
+      </div>
+    </div>
+
+
+
+</div>

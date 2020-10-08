@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
+import Movie from 'src/app/dto/movie';
+import { MovieService } from 'src/app/providers/movie.service';
 
 @Component({
   selector: 'app-search',
@@ -10,13 +12,40 @@ import { map, startWith } from 'rxjs/operators';
 })
 export class SearchComponent implements OnInit {
 
-  constructor() { }
+  movies: Movie[] = [];
+
+  movieList: Movie[];
+  searchTerm: any;
+
+  constructor(private _movieService: MovieService) {
+  }
+
+   /*ngOnInit() {
+   this._movieService.getMoviesList().subscribe((response: any) => {
+      console.log(response);
+
+      this.movies = response;
+
+    });
+  }*/
+
+  //movies: Movie[];
+
+  //constructor(private _movieService: MovieService) { }
+
+
+  getMovies() {
+    this._movieService.getMoviesList().subscribe((response: any) => {
+      this.movies = response;
+    })
+  }
 
   myControl = new FormControl();
-  options: string[] = ['Delhi', 'Mumbai', 'Banglore'];
+  option2: any[] = ['Delhi', 'Mumbai', 'Banglore'];
   filteredOptions: Observable<string[]>;
 
   ngOnInit() {
+    this.getMovies();
     this.filteredOptions = this.myControl.valueChanges
       .pipe(
         startWith(''),
@@ -27,26 +56,26 @@ export class SearchComponent implements OnInit {
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
 
-    return this.options.filter(option => option.toLowerCase().includes(filterValue));
+    return this.option2.filter(option => option.toLowerCase().includes(filterValue));
   }
 
-  /*myControl = new FormControl();
-  options: string[] = ['One', 'Two', 'Three'];
-  filteredOptions: Observable<string[]>;
 
-  ngOnInit() {
-    this.filteredOptions = this.myControl.valueChanges
-      .pipe(
-        startWith(''),
-        map(value => this._filter(value))
-      );
+  /*onChangeTerms() {
+    if (this.searchTerm = "") {
+      this.ngOnInit();
+    } else {
+      this.movies = this.movies.filter(res => {
+        return res.title.toLocaleLowerCase().match(this.searchTerm.toLocaleLowerCase());
+      })
+    }
+
   }
 
-  private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
 
-    return this.options.filter(option => option.toLowerCase().includes(filterValue));
-  }
+  */
+
+
+  /*
   public color = 'orange';
   items = [
     {

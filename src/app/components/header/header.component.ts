@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import Movie from 'src/app/dto/movie';
+import { MovieService } from 'src/app/providers/movie.service';
 
 @Component({
   selector: 'app-header',
@@ -7,14 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  movies: Movie[];
 
-  constructor() { }
+@Output() emittedT: EventEmitter<any>;
+
+  constructor() {
+    this.emittedT = new EventEmitter();
+   }
 
   ngOnInit(): void {
   }
 
-  search() {
-
+  getSearchTerm(ev: any) {
+    this.emittedT.emit(ev);
   }
+
+
 
 }

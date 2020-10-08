@@ -4,8 +4,7 @@
   </div>
 
   <div class="container2">
-    <span class="search_icon"><img src="https://icons-for-free.com/iconfiles/png/512/finance+magnifier+money+search+icon-1320086609368077798.png" alt="Search Icon" ></span>
-    <span><app-search></app-search></span>
+    <span><app-search-bar (emittedTerm)="getSearchTerm($event)"></app-search-bar></span>
   </div>
 
   <div class="container3">
