@@ -13,6 +13,12 @@
     font-size: 1.5vw;
     margin-top: 0.6vw;
 
+    a {
+      text-decoration: none;
+      color: white;
+      margin-left: -1vw;
+    }
+
   }
 
   .container2 {
@@ -68,5 +74,12 @@
     }
 
   }
+
+}
+
+@media only screen and (min-width: 600px) {
+
+}
+@media only screen and (min-width: 768px) {
 
 }
