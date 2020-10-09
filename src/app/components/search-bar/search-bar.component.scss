@@ -1,18 +1,24 @@
 .search {
   display: flex;
   flex-direction: row;
-  border-radius: 5px;
-  background-color: #eeeeee;
-  padding: 6px;
+  background-color: #ff5585;
+  padding: 0.8vw;
+  margin-left: 0.5vw;
+  margin-top: -1.05vw;
+  margin-bottom: -1.1vw;
+  font-size: 1.2vw;
 
   .icon img {
-    width: 25px;
+    width: 2vw;
+    margin-right: 0.5vw;
   }
 
   input {
     outline: none;
     border: none;
     width: 100%;
-    background-color: #eeeeee;
+    background-color:  #ff5585;
+    font-size: 1vw;
+    color: white;
   }
 }
