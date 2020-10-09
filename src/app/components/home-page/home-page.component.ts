@@ -57,7 +57,7 @@ export class HomePageComponent implements OnInit {
 
   getMovies() {
     this._moviesService.getMoviesList().subscribe((data: any) => {
-      console.log(data);
+     // console.log(data);
 
       data.forEach(m => {
         var movie = new Movie();
@@ -73,6 +73,31 @@ export class HomePageComponent implements OnInit {
 
 
   fetchComingSoon() {
+    this._moviesService.fetchComingSoonList().subscribe(() => {
+      this.movieList = this._moviesService.movieList;
+    });
+  }
+
+   fetchTrending() {
+    this._moviesService.fetchTrendingList().subscribe(() => {
+      this.movieList2 = this._moviesService.movieList2;
+    });
+  }
+
+
+
+
+}
+
+
+
+
+
+
+
+ /* ----- Old way -----
+
+ fetchComingSoon() {
     this.movieList = [];
     this._moviesService.fetchComingSoonList().subscribe((data: any) => {
       if ( data != null) {
@@ -88,23 +113,4 @@ export class HomePageComponent implements OnInit {
         });
       }
     });
-  }
-
-  fetchTrending() {
-    this.movieList2 = [];
-    this._moviesService.fetchTrendingList().subscribe((data: any) => {
-      if ( data != null) {
-        console.log(data);
-        data.results.forEach(element => {
-          var movies = new Movie();
-          movies.title = element.title;
-          movies.genres = element.genres;
-          movies.imageUrl = element.posterurl;
-          movies.rating = element.vote_average;
-          this.movieList2.push(movies);
-          console.log(this.movieList2);
-        });
-      }
-    });
-  }
-}
+  } */

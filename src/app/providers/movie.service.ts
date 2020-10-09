@@ -10,6 +10,7 @@ import Movie from '../dto/movie';
 export class MovieService {
 
   private _movieList: Movie[];
+  private _movieList2: Movie[];
   private _movie: Movie;
 
   constructor(private http: HttpClient) {
@@ -17,6 +18,10 @@ export class MovieService {
 
   get movieList(): Movie[] {
     return this._movieList;
+  }
+
+  get movieList2(): Movie[] {
+    return this._movieList2;
   }
 
   get movie(): Movie {
@@ -28,16 +33,52 @@ export class MovieService {
   }
 
   fetchComingSoonList(): Observable<any> {
-
-    return this.http.get('https://api.themoviedb.org/3/movie/upcoming?api_key=fed69657ba4cc6e1078d2a6a95f51c8c');
+    this._movieList = [];
+    return this.http.get('https://api.themoviedb.org/3/movie/upcoming?api_key=fed69657ba4cc6e1078d2a6a95f51c8c')
+    .pipe(map((data: any) => {
+    if (data != null) {
+     // console.log(data);
+        data.results.forEach(elements => {
+          var mo = new Movie();
+          mo.title = elements.title;
+          mo.genres = elements.genres;
+          mo.imageUrl = elements.posterurl;
+          mo.rating = elements.vote_average;
+          this._movieList.push(mo);
+          //console.log(this._movieList2);
+        });
+    }
+    }));
   }
 
   fetchTrendingList(): Observable<any> {
-
-    return this.http.get('https://api.themoviedb.org/3/movie/popular?api_key=fed69657ba4cc6e1078d2a6a95f51c8c');
+    this._movieList2 = [];
+    return this.http.get('https://api.themoviedb.org/3/movie/popular?api_key=fed69657ba4cc6e1078d2a6a95f51c8c')
+    .pipe(map((data: any) => {
+    if (data != null) {
+     // console.log(data);
+        data.results.forEach(element => {
+          var mov = new Movie();
+          mov.title = element.title;
+          mov.genres = element.genres;
+          mov.imageUrl = element.posterurl;
+          mov.rating = element.vote_average;
+          this.movieList2.push(mov);
+         // console.log(this.movieList);
+        });
+    }
+    }));
   }
 
 
 
 
 }
+
+/*------------Old Way ---------------------
+
+  fetchTrendingList(): Observable<any> {
+
+    return this.http.get('https://api.themoviedb.org/3/movie/popular?api_key=fed69657ba4cc6e1078d2a6a95f51c8c');
+  }
+*/
