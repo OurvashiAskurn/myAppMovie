@@ -9,7 +9,6 @@ import { SideMenuComponent } from './components/side-menu/side-menu.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { MovieService } from './providers/movie.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { SearchComponent } from './components/search/search.component';
 import { AngularMaterialModule } from './angular-material.module';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 
@@ -19,7 +18,6 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
     HeaderComponent,
     SideMenuComponent,
     HomePageComponent,
-    SearchComponent,
     SearchBarComponent
   ],
   imports: [

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { element } from 'protractor';
 import Movie from 'src/app/dto/movie';
 import { MovieService } from 'src/app/providers/movie.service';
 
@@ -12,15 +13,19 @@ export class HomePageComponent implements OnInit {
   displayValue: any;
   movies: Movie[];
   movieList: Movie[];
+  movieList2: Movie[];
   filterList: Movie[];
 
   constructor(private _moviesService: MovieService) {
     this.displayValue = '';
     this.movies = [];
     this.movieList = [];
+    this.movieList2 = [];
     this.searchTerm = '';
     this.filterList = [];
     this.getMovies();
+    this.fetchComingSoon();
+    this.fetchTrending();
   }
 
 
@@ -28,11 +33,13 @@ export class HomePageComponent implements OnInit {
     this.displayValue = 'New Release';
     this.getMovies();
     this.searchTerm = '';
+    this.fetchComingSoon();
+    this.fetchTrending();
   }
 
   getValue(event: any) {
-    console.log(event);
-    console.log(this.movies);
+    //console.log(event);
+    //console.log(this.movies);
     this.searchTerm = event;
     if (event.length > 0) {​​​​
       this.filterList = this.movies.filter(movie => {​​​​
@@ -65,4 +72,39 @@ export class HomePageComponent implements OnInit {
   }
 
 
+  fetchComingSoon() {
+    this.movieList = [];
+    this._moviesService.fetchComingSoonList().subscribe((data: any) => {
+      if ( data != null) {
+        console.log(data);
+        data.results.forEach(element => {
+          var movies = new Movie();
+          movies.title = element.title;
+          movies.genres = element.genres;
+          movies.imageUrl = element.posterurl;
+          movies.rating = element.vote_average;
+          this.movieList.push(movies);
+          console.log(this.movieList);
+        });
+      }
+    });
+  }
+
+  fetchTrending() {
+    this.movieList2 = [];
+    this._moviesService.fetchTrendingList().subscribe((data: any) => {
+      if ( data != null) {
+        console.log(data);
+        data.results.forEach(element => {
+          var movies = new Movie();
+          movies.title = element.title;
+          movies.genres = element.genres;
+          movies.imageUrl = element.posterurl;
+          movies.rating = element.vote_average;
+          this.movieList2.push(movies);
+          console.log(this.movieList2);
+        });
+      }
+    });
+  }
 }
