@@ -11,6 +11,7 @@ import { MovieService } from './providers/movie.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularMaterialModule } from './angular-material.module';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
+import { MovieListComponent } from './components/movie-list/movie-list.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
     HeaderComponent,
     SideMenuComponent,
     HomePageComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    MovieListComponent
   ],
   imports: [
     BrowserModule,
