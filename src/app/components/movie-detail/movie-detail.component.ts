@@ -28,6 +28,8 @@ export class MovieDetailComponent implements OnInit {
     }
   }
 
+
+
 close() {
   document.getElementById('myModal').style.display = "none";
 }

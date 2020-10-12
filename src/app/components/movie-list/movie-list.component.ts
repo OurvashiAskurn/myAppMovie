@@ -12,8 +12,8 @@ export class MovieListComponent implements OnInit {
   searchTerm: any;
   displayValue: any;
   movies: Movie[];
-  movieList: Movie[];
   filterList: Movie[] ;
+  movieList: Movie[];
   @Output() valueEmitted2 = new EventEmitter<string>();
   @Input('movieGenres') movieList2: Movie[];
   @Input('itemSelected') movieSelected: string;
@@ -55,8 +55,8 @@ export class MovieListComponent implements OnInit {
 
   onValueEmitted(valueEmitted: any) {
     this.displayValue = valueEmitted;
-
   }
+
 
   getMovies() {
     this._moviesService.getMoviesList().subscribe((data: any) => {
@@ -95,6 +95,7 @@ export class MovieListComponent implements OnInit {
   sendCategory(value: string) {
     this.valueEmitted2.emit(value);
   }
+
 
 }
 
