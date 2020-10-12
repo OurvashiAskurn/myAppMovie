@@ -19,8 +19,8 @@ export class MovieDetailComponent implements OnInit {
 
   onValueEmitted(valueEmitted2: any) {
     this.displayValues = valueEmitted2;
-    console.log(this.displayValues);
-    console.log(valueEmitted2);
+    //console.log(this.displayValues);
+    //console.log(valueEmitted2);
     if (this.displayValues == null) {
       document.getElementById('myModal').style.display = "none";
     } else {
