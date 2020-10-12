@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { element } from 'protractor';
 import Movie from 'src/app/dto/movie';
 import { MovieService } from 'src/app/providers/movie.service';
 

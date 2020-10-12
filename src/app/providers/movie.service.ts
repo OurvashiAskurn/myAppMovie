@@ -42,10 +42,10 @@ export class MovieService {
           var mo = new Movie();
           mo.title = elements.title;
           mo.genres = elements.genres;
-          mo.imageUrl = elements.posterurl;
+          mo.imageUrl = elements.poster_path;
           mo.rating = elements.vote_average;
-          this._movieList.push(mo);
-          //console.log(this._movieList2);
+          this.movieList.push(mo);
+          //console.log(this._movieList);
         });
     }
     }));
@@ -61,10 +61,10 @@ export class MovieService {
           var mov = new Movie();
           mov.title = element.title;
           mov.genres = element.genres;
-          mov.imageUrl = element.posterurl;
+          mov.imageUrl = element.poster_path;
           mov.rating = element.vote_average;
           this.movieList2.push(mov);
-         // console.log(this.movieList);
+          //console.log(this.movieList2);
         });
     }
     }));
