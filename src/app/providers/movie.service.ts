@@ -44,6 +44,7 @@ export class MovieService {
           mo.genres = elements.genres;
           mo.imageUrl = elements.poster_path;
           mo.rating = elements.vote_average;
+          mo.overview = elements.overview;
           this.movieList.push(mo);
           //console.log(this._movieList);
         });
@@ -63,6 +64,7 @@ export class MovieService {
           mov.genres = element.genres;
           mov.imageUrl = element.poster_path;
           mov.rating = element.vote_average;
+          mov.overview = element.overview;
           this.movieList2.push(mov);
           //console.log(this.movieList2);
         });

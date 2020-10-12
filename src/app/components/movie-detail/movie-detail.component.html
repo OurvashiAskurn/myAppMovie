@@ -1,0 +1,16 @@
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close" (click)='close()'>&times;</span>
+    <p><b>{{displayValues._title}}</b></p>
+    <p>{{displayValues._overview}}</p>
+  </div>
+
+</div>
+
+
+
+
+<app-movie-list [id]="displayValues" (valueEmitted2)="onValueEmitted($event)"></app-movie-list>

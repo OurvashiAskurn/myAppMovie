@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import Movie from 'src/app/dto/movie';
 import { MovieService } from 'src/app/providers/movie.service';
 
@@ -13,8 +13,10 @@ export class MovieListComponent implements OnInit {
   displayValue: any;
   movies: Movie[];
   movieList: Movie[];
-  movieList2: Movie[];
-  filterList: Movie[];
+  filterList: Movie[] ;
+  @Output() valueEmitted2 = new EventEmitter<string>();
+  @Input('movieGenres') movieList2: Movie[];
+  @Input('itemSelected') movieSelected: string;
 
   constructor(private _moviesService: MovieService) {
     this.displayValue = '';
@@ -26,6 +28,7 @@ export class MovieListComponent implements OnInit {
     this.getMovies();
     this.fetchComingSoon();
     this.fetchTrending();
+    this.movieSelected = "Movies";
   }
 
 
@@ -84,8 +87,13 @@ export class MovieListComponent implements OnInit {
     });
   }
 
-  viewMovieDetails() {
+  retrieveName(name: string) {
+    this.movieSelected = name;
+    this.sendCategory(name);
+  }
 
+  sendCategory(value: string) {
+    this.valueEmitted2.emit(value);
   }
 
 }

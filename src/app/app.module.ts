@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularMaterialModule } from './angular-material.module';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { MovieListComponent } from './components/movie-list/movie-list.component';
+import { MovieDetailComponent } from './components/movie-detail/movie-detail.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { MovieListComponent } from './components/movie-list/movie-list.component
     SideMenuComponent,
     HomePageComponent,
     SearchBarComponent,
-    MovieListComponent
+    MovieListComponent,
+    MovieDetailComponent
   ],
   imports: [
     BrowserModule,
