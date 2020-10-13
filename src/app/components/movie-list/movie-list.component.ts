@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import Movie from 'src/app/dto/movie';
 import { MovieService } from 'src/app/providers/movie.service';
 
@@ -18,7 +19,7 @@ export class MovieListComponent implements OnInit {
   @Input('movieGenres') movieList2: Movie[];
   @Input('itemSelected') movieSelected: string;
 
-  constructor(private _moviesService: MovieService) {
+  constructor(private _moviesService: MovieService, private _router: Router) {
     this.displayValue = '';
     this.movies = [];
     this.movieList = [];
@@ -55,32 +56,40 @@ export class MovieListComponent implements OnInit {
 
   onValueEmitted(valueEmitted: any) {
     this.displayValue = valueEmitted;
+    if (valueEmitted === 'Watch Later') {
+      this._router.navigateByUrl('/watch_later').then(() => {
+      });
+    } else if (valueEmitted === 'Trending') {
+      this._router.navigateByUrl('/trending').then(() => {
+      });
+    } else if (valueEmitted === 'Coming Soon') {
+      this._router.navigateByUrl('/coming_soon').then(() => {
+      });
+    } else if (valueEmitted === 'Favourites') {
+      this._router.navigateByUrl('/favourites').then(() => {
+      });
+    } else {
+      this._router.navigateByUrl('/new_release').then(() => {
+      });
+    }
   }
 
 
+  //fetch movie list from json
   getMovies() {
-    this._moviesService.getMoviesList().subscribe((data: any) => {
-     // console.log(data);
-
-      data.forEach(m => {
-        var movie = new Movie();
-        movie.title = m.title;
-        movie.genres = m.genres;
-        movie.imageUrl = m.posterurl;
-        movie.rating = m.imdbRating;
-        this.movies.push(movie);
-        this.filterList.push(movie);
-      });
+    this._moviesService.getMoviesList().subscribe(() => {
+     this.filterList = this._moviesService.filterList;
     });
   }
 
-
+  //fetch movie list from upcoming api
   fetchComingSoon() {
     this._moviesService.fetchComingSoonList().subscribe(() => {
       this.movieList = this._moviesService.movieList;
     });
   }
 
+  //fetch movie list from json
    fetchTrending() {
     this._moviesService.fetchTrendingList().subscribe(() => {
       this.movieList2 = this._moviesService.movieList2;

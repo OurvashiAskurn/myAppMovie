@@ -12,6 +12,7 @@ export class MovieService {
   private _movieList: Movie[];
   private _movieList2: Movie[];
   private _movie: Movie;
+  private _filterList: Movie[];
 
   constructor(private http: HttpClient) {
   }
@@ -24,12 +25,30 @@ export class MovieService {
     return this._movieList2;
   }
 
+  get filterList(): Movie[] {
+    return this._filterList;
+  }
+
   get movie(): Movie {
     return this._movie;
   }
 
-  getMoviesList() {
-    return this.http.get('./assets/movie.json');
+  getMoviesList(): Observable<any> {
+    this._filterList = [];
+    return this.http.get('./assets/movie.json').pipe(map((data: any) => {
+      if (data != null) {
+        data.forEach(m => {
+          var movie = new Movie();
+          movie.title = m.title;
+          movie.genres = m.genres;
+          movie.imageUrl = m.posterurl;
+          movie.rating = m.imdbRating;
+          movie.id = m.duration;
+          movie.overview = m.storyline
+          this.filterList.push(movie);
+        });
+      }
+    }))
   }
 
   fetchComingSoonList(): Observable<any> {
@@ -40,6 +59,7 @@ export class MovieService {
       console.log(data);
         data.results.forEach(elements => {
           var mo = new Movie();
+          mo.id = elements.id;
           mo.title = elements.title;
           mo.genres = elements.genres;
           mo.imageUrl = elements.poster_path;
@@ -60,6 +80,7 @@ export class MovieService {
      // console.log(data);
         data.results.forEach(element => {
           var mov = new Movie();
+          mov.id = element.id;
           mov.title = element.title;
           mov.genres = element.genres;
           mov.imageUrl = element.poster_path;
@@ -71,6 +92,8 @@ export class MovieService {
     }
     }));
   }
+
+
 
 
 
