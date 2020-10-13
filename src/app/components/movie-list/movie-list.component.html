@@ -14,7 +14,7 @@
 <div *ngIf="displayValue === 'Trending' " class="movieContainer">
   <div  *ngFor="let movies2 of movieList2"  (click)="retrieveName(movies2)" [class.selected]="movieSelected === movies2">
     <div class="movieContent" >
-      <!-- <img src="{{ movies2.imageUrl }}" alt="Not available" class="poster"> --><br>
+      <img src="https://image.tmdb.org/t/p/w300{{ movies2.imageUrl }}" alt="Not available" class="poster"><br>
       <b>{{ movies2.title }}</b><br><br>
       <span class="subDivision">Rating: <span class="rating">{{ movies2.rating}} <span class="star"> <img src="https://www.clker.com/cliparts/p/i/0/Y/B/m/large-yellow-star-md.png" alt=""></span></span></span>
     </div>
@@ -24,7 +24,7 @@
     <div *ngIf="displayValue === 'Coming Soon' " class="movieContainer">
       <div  *ngFor="let movies of movieList" >
         <div class="movieContent">
-           <!-- <img src="{{ movies2.imageUrl }}" alt="Not available" class="poster"> --><br>
+           <img src="https://image.tmdb.org/t/p/w300{{ movies.imageUrl }}" alt="Not available" class="poster"><br>
           <b>{{ movies.title }}</b><br><br>
           <span class="subDivision">Rating: <span class="rating">{{ movies.rating}} <span class="star"> <img src="https://www.clker.com/cliparts/p/i/0/Y/B/m/large-yellow-star-md.png" alt=""></span></span></span>
         </div>
