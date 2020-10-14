@@ -9,7 +9,7 @@
 
 
 
-<br><br><br><br>
+<br><br><br><br><br>
 
 <div *ngIf="displayValue === 'New Release' || displayValue === 'Favourites'  || displayValue === 'Watch Later' " class="movieContainer">
   <div  *ngFor="let movie of filterList">
@@ -25,7 +25,7 @@
 <div *ngIf="displayValue === 'Coming Soon' || displayValue === 'Trending' " class="movieContainer">
   <div *ngFor="let movie of movies" (click)="viewDetails(movie)">
     <div class="movieContent" >
-       <div [ngStyle]="getBackground(movie.imageUrl)"></div>
+      <img src="https://image.tmdb.org/t/p/w300{{ movie.imageUrl }}" alt="Not available" class="poster"><br>
       <b>{{ movie.title }}</b><br><br>
       <span class="subDivision">Rating: <span class="rating">{{ movie.rating}} <span class="star"> <img src="https://www.clker.com/cliparts/p/i/0/Y/B/m/large-yellow-star-md.png" alt=""></span></span></span>
     </div>

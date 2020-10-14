@@ -16,7 +16,7 @@ export class MovieDetailComponent implements OnInit {
   constructor(private _route: ActivatedRoute, private  _movieService: MovieService) {
     this.movie = new Movie();
     this.movieId = this._route.snapshot.paramMap.get('id');
-    console.log(this.movieId);
+   // console.log(this.movieId);
     this.getMovieById();
   }
 
@@ -27,6 +27,10 @@ export class MovieDetailComponent implements OnInit {
     this._movieService.fetchMovieById(this.movieId).subscribe(() => {
       this.movie = this._movieService.movie;
     });
+  }
+
+  close() {
+    document.getElementById('myModal').style.display = 'none';
   }
 
 }
