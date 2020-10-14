@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import Movie from 'src/app/dto/movie';
 import { MovieService } from 'src/app/providers/movie.service';
 
@@ -13,7 +13,7 @@ export class MovieDetailComponent implements OnInit {
   movieId: any;
   movie: Movie;
 
-  constructor(private _route: ActivatedRoute, private  _movieService: MovieService) {
+  constructor(private _route: ActivatedRoute, private  _movieService: MovieService, private _router: Router) {
     this.movie = new Movie();
     this.movieId = this._route.snapshot.paramMap.get('id');
    // console.log(this.movieId);
@@ -31,6 +31,9 @@ export class MovieDetailComponent implements OnInit {
 
   close() {
     document.getElementById('myModal').style.display = 'none';
+    this._router.navigate(['/new_release'])
+      .then(() => {
+      });
   }
 
 }

@@ -18,6 +18,7 @@ export class MovieListComponent implements OnInit {
 
   constructor(private _moviesService: MovieService, private _router: Router) {
     this.displayValue = '';
+    this.searchTerm = '';
     this.movies = [];
     this.movieList = [];
     this.filterList = [];
@@ -53,6 +54,7 @@ export class MovieListComponent implements OnInit {
 
 
   ngOnInit() {
+    this.searchTerm = '';
     if (this._router.url.startsWith('/coming_soon')) {
       this.getComingSoonMovies();
       this.displayValue = "Coming Soon";
@@ -97,9 +99,10 @@ export class MovieListComponent implements OnInit {
         movie.genres = m.genres;
         movie.imageUrl = m.posterurl;
         movie.rating = m.imdbRating;
-        this.movies.push(movie);
+        //this.movies.push(movie);
         this.filterList.push(movie);
       });
+      this.filterList = this.movies;
     });
   }
 
