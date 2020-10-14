@@ -77,8 +77,18 @@ export class MovieListComponent implements OnInit {
 
   //fetch movie list from json
   getMovies() {
-    this._moviesService.getMoviesList().subscribe(() => {
-     this.filterList = this._moviesService.filterList;
+    this._moviesService.getMoviesList().subscribe((data: any) => {
+     // console.log(data);
+
+      data.forEach(m => {
+        var movie = new Movie();
+        movie.title = m.title;
+        movie.genres = m.genres;
+        movie.imageUrl = m.posterurl;
+        movie.rating = m.imdbRating;
+        this.movies.push(movie);
+        this.filterList.push(movie);
+      });
     });
   }
 

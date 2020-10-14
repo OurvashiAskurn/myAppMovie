@@ -34,21 +34,7 @@ export class MovieService {
   }
 
   getMoviesList(): Observable<any> {
-    this._filterList = [];
-    return this.http.get('./assets/movie.json').pipe(map((data: any) => {
-      if (data != null) {
-        data.forEach(m => {
-          var movie = new Movie();
-          movie.title = m.title;
-          movie.genres = m.genres;
-          movie.imageUrl = m.posterurl;
-          movie.rating = m.imdbRating;
-          movie.id = m.duration;
-          movie.overview = m.storyline
-          this.filterList.push(movie);
-        });
-      }
-    }))
+    return this.http.get('./assets/movie.json');
   }
 
   fetchComingSoonList(): Observable<any> {
