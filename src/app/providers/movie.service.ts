@@ -39,47 +39,56 @@ export class MovieService {
 
   fetchComingSoonList(): Observable<any> {
     this._movieList = [];
-    return this.http.get('https://api.themoviedb.org/3/movie/upcoming?api_key=fed69657ba4cc6e1078d2a6a95f51c8c')
-    .pipe(map((data: any) => {
-    if (data != null) {
-      console.log(data);
-        data.results.forEach(elements => {
-          var mo = new Movie();
-          mo.id = elements.id;
-          mo.title = elements.title;
-          mo.genres = elements.genres;
-          mo.imageUrl = elements.poster_path;
-          mo.rating = elements.vote_average;
-          mo.overview = elements.overview;
-          this.movieList.push(mo);
-          //console.log(this._movieList);
-        });
-    }
-    }));
+    return this.http.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=fed69657ba4cc6e1078d2a6a95f51c8c`)
+      .pipe(map((data: any) => {
+        if (data != null) {
+          data.results.forEach(element => {
+            //console.log(element);
+            const movie: Movie = new Movie();
+            movie.id = element.id;
+            movie.title = element.original_title;
+            movie.rating = element.vote_average;
+            movie.imageUrl = element.poster_path;
+            this._movieList.push(movie);
+          });
+        }
+      }));
   }
 
   fetchTrendingList(): Observable<any> {
-    this._movieList2 = [];
-    return this.http.get('https://api.themoviedb.org/3/movie/popular?api_key=fed69657ba4cc6e1078d2a6a95f51c8c')
-    .pipe(map((data: any) => {
-    if (data != null) {
-     // console.log(data);
-        data.results.forEach(element => {
-          var mov = new Movie();
-          mov.id = element.id;
-          mov.title = element.title;
-          mov.genres = element.genres;
-          mov.imageUrl = element.poster_path;
-          mov.rating = element.vote_average;
-          mov.overview = element.overview;
-          this.movieList2.push(mov);
-          //console.log(this.movieList2);
-        });
-    }
-    }));
+    this._movieList = [];
+    return this.http.get(`https://api.themoviedb.org/3/movie/popular?api_key=fed69657ba4cc6e1078d2a6a95f51c8c`)
+      .pipe(map((data: any) => {
+        if (data != null) {
+         // console.log(data);
+          data.results.forEach(element => {
+            //console.log(element);
+            const movie: Movie = new Movie();
+            movie.id = element.id;
+            movie.title = element.original_title;
+            movie.rating = element.vote_average;
+            movie.imageUrl = element.poster_path;
+            this._movieList.push(movie);
+          });
+        }
+      }));
   }
 
-
+  fetchMovieById(id: any): Observable<any> {
+    this._movie = new Movie();
+    return this.http.get(`https://api.themoviedb.org/3/movie/${id}?api_key=fed69657ba4cc6e1078d2a6a95f51c8c`)
+      .pipe(map((data: any) => {
+        //console.log(data);
+        if (data != null) {
+          const movie: Movie = new Movie();
+          movie.id = data.id;
+          movie.title = data.original_title;
+          movie.imageUrl = data.poster_path;
+          movie.overview = data.overview;
+          this._movie = movie;
+        }
+      }));
+  }
 
 
 

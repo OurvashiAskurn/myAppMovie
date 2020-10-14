@@ -1,26 +1,27 @@
 .viewMovies {
-
   box-sizing: border-box;
+  position: absolute;
+  margin-left: 21.5%;
+  margin-top: 5vw;
 
   .movieCategory {
     position: absolute;
-    margin-left: 30%;
-    margin-top: 7%;
-    padding-bottom: 10vw;
+    margin-left: 5vw;
 
     .subTitle {
       font-size: 2vw;
       color:  #ff2462;
+      margin-top: 2vw;
     }
   }
 
   .movieContainer {
-    margin-left: 21.5%;
     height: 36vw;
     padding: 0.5vw 4vw 2vw;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+
 
     .movieContent {
       width: 14vw;

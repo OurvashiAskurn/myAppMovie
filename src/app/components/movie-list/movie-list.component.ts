@@ -15,31 +15,61 @@ export class MovieListComponent implements OnInit {
   movies: Movie[];
   filterList: Movie[] ;
   movieList: Movie[];
-  @Output() valueEmitted2 = new EventEmitter<string>();
-  @Input('movieGenres') movieList2: Movie[];
-  @Input('itemSelected') movieSelected: string;
 
   constructor(private _moviesService: MovieService, private _router: Router) {
     this.displayValue = '';
     this.movies = [];
     this.movieList = [];
-    this.movieList2 = [];
-    this.searchTerm = '';
     this.filterList = [];
-    this.getMovies();
-    this.fetchComingSoon();
-    this.fetchTrending();
-    this.movieSelected = "Movies";
+    if (this._router.url.startsWith('/coming_soon')) {
+      this.getComingSoonMovies();
+      this.displayValue = "Coming Soon";
+    } else if (this._router.url.startsWith('/trending')) {
+      this.getTrendingMovies();
+      this.displayValue = "Trending";
+    } else if (this._router.url.startsWith('/favourites')) {
+      this.getMovies();
+      this.displayValue = "Favourites";
+    } else if (this._router.url.startsWith('/watch_later')) {
+      this.getMovies();
+      this.displayValue = "Watch Later";
+    } else {
+      this.getMovies();
+      this.displayValue = "New Release";
+    }
+  }
+
+  getBackground(photo: string) {
+    return {
+      'background': `url("https://image.tmdb.org/t/p/w300${photo}") center center no-repeat`,
+      'height': '15vw',
+      'width': '13vw',
+      'max-height': '15vw',
+      'margin-top': '0.5vw',
+      'margin-left':' 0.5vw',
+      'margin-bottom': '0.5vw',
+    };
   }
 
 
   ngOnInit() {
-    this.displayValue = 'New Release';
-    this.getMovies();
-    this.searchTerm = '';
-    this.fetchComingSoon();
-    this.fetchTrending();
-  }
+    if (this._router.url.startsWith('/coming_soon')) {
+      this.getComingSoonMovies();
+      this.displayValue = "Coming Soon";
+    } else if (this._router.url.startsWith('/trending')) {
+      this.getTrendingMovies();
+      this.displayValue = "Trending";
+    } else if (this._router.url.startsWith('/favourites')) {
+      this.getMovies();
+      this.displayValue = "Favourites";
+    } else if (this._router.url.startsWith('/watch_later')) {
+      this.getMovies();
+      this.displayValue = "Watch Later";
+    } else {
+      this.getMovies();
+      this.displayValue = "New Release";
+    }
+    }
 
   getValue(event: any) {
     //console.log(event);
@@ -54,25 +84,6 @@ export class MovieListComponent implements OnInit {
     }​​​​
   }
 
-  onValueEmitted(valueEmitted: any) {
-    this.displayValue = valueEmitted;
-    if (valueEmitted === 'Watch Later') {
-      this._router.navigateByUrl('/watch_later').then(() => {
-      });
-    } else if (valueEmitted === 'Trending') {
-      this._router.navigateByUrl('/trending').then(() => {
-      });
-    } else if (valueEmitted === 'Coming Soon') {
-      this._router.navigateByUrl('/coming_soon').then(() => {
-      });
-    } else if (valueEmitted === 'Favourites') {
-      this._router.navigateByUrl('/favourites').then(() => {
-      });
-    } else {
-      this._router.navigateByUrl('/new_release').then(() => {
-      });
-    }
-  }
 
 
   //fetch movie list from json
@@ -92,27 +103,22 @@ export class MovieListComponent implements OnInit {
     });
   }
 
-  //fetch movie list from upcoming api
-  fetchComingSoon() {
+  getComingSoonMovies() {
     this._moviesService.fetchComingSoonList().subscribe(() => {
-      this.movieList = this._moviesService.movieList;
+      this.movies = this._moviesService.movieList;
     });
   }
 
-  //fetch movie list from json
-   fetchTrending() {
+  getTrendingMovies() {
     this._moviesService.fetchTrendingList().subscribe(() => {
-      this.movieList2 = this._moviesService.movieList2;
+      this.movies = this._moviesService.movieList;
     });
   }
 
-  retrieveName(name: string) {
-    this.movieSelected = name;
-    this.sendCategory(name);
-  }
-
-  sendCategory(value: string) {
-    this.valueEmitted2.emit(value);
+  viewDetails(movie: Movie) {
+    this._router.navigate([this._router.url, movie.id])
+      .then(() => {
+      });
   }
 
 

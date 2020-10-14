@@ -1,12 +1,12 @@
 .search {
   display: flex;
   flex-direction: row;
-  background-color: #ff5585;
+   background-color:  #ff5585;
+  margin-top: -1vw;
   padding: 0.8vw;
   margin-left: 0.5vw;
-  margin-top: -1.05vw;
   margin-bottom: -1.1vw;
-  font-size: 1.2vw;
+  height: 2vw;
 
   .icon img {
     width: 2vw;
@@ -23,7 +23,7 @@
   }
 }
 
-@media only screen and (min-width: 600px) {
+/*@media only screen and (min-width: 600px) {
   .search {
     display: flex;
     flex-direction: row;
@@ -51,4 +51,4 @@
 }
 @media only screen and (min-width: 768px) {
 
-}
+}*/

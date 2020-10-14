@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import Movie from 'src/app/dto/movie';
+import { MovieService } from 'src/app/providers/movie.service';
 
 @Component({
   selector: 'app-movie-detail',
@@ -7,31 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MovieDetailComponent implements OnInit {
 
-  displayValues: any;
+  movieId: any;
+  movie: Movie;
 
-  constructor() {
-    this.displayValues = '';
+  constructor(private _route: ActivatedRoute, private  _movieService: MovieService) {
+    this.movie = new Movie();
+    this.movieId = this._route.snapshot.paramMap.get('id');
+    console.log(this.movieId);
+    this.getMovieById();
   }
 
-  ngOnInit(): void {
-    this.displayValues = '';
+  ngOnInit() {
   }
 
-  onValueEmitted(valueEmitted2: any) {
-    this.displayValues = valueEmitted2;
-    //console.log(this.displayValues);
-    //console.log(valueEmitted2);
-    if (this.displayValues == null) {
-      document.getElementById('myModal').style.display = "none";
-    } else {
-      document.getElementById('myModal').style.display = "block";
-    }
+  getMovieById() {
+    this._movieService.fetchMovieById(this.movieId).subscribe(() => {
+      this.movie = this._movieService.movie;
+    });
   }
-
-
-
-close() {
-  document.getElementById('myModal').style.display = "none";
-}
 
 }

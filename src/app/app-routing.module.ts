@@ -7,23 +7,33 @@ const routes: Routes = [
   {path: '', redirectTo:'new_release', pathMatch: 'full'},
   {path: 'new_release', children: [
     {path: '', component: MovieListComponent},
-    {path: 'id', component: MovieDetailComponent}
+    {path: ':id', children: [
+      {path: '', component: MovieDetailComponent}
+    ]}
   ]},
   {path: 'trending', children: [
     {path: '', component: MovieListComponent},
-    {path: 'id', component: MovieDetailComponent}
+    {path: ':id', children: [
+      {path: '', component: MovieDetailComponent}
+    ]}
   ]},
   {path: 'coming_soon', children: [
     {path: '', component: MovieListComponent},
-    {path: 'id', component: MovieDetailComponent}
+    {path: ':id', children: [
+      {path: '', component: MovieDetailComponent}
+    ]}
   ]},
   {path: 'favourites', children: [
     {path: '', component: MovieListComponent},
-    {path: 'id', component: MovieDetailComponent}
+    {path: ':id', children: [
+      {path: '', component: MovieDetailComponent}
+    ]}
   ]},
   {path: 'watch_later', children: [
     {path: '', component: MovieListComponent},
-    {path: 'id', component: MovieDetailComponent}
+    {path: ':id', children: [
+      {path: '', component: MovieDetailComponent}
+    ]}
   ]}
 ];
 

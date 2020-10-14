@@ -1,13 +1,10 @@
-
-
-  <div id="myModal" class="modal" >
-    <div class="modal-content">
-      <span class="close" (click)='close()'>&times;</span>
-      <h2>{{displayValues._title}}</h2>
-      <p>{{displayValues._overview}}</p>
-    </div>
+<div class="movie-details" *ngIf="movie != null">
+  <div class="photo">
   </div>
-
-  <app-movie-list [id]="displayValues" (valueEmitted2)="onValueEmitted($event)" ></app-movie-list>
+  <div class="contents">
+    <div class="title">{{ movie.title }}</div>
+    <div class="details"> {{ movie.overview }}</div>
+  </div>
+</div>
 
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import Movie from 'src/app/dto/movie';
 import { MovieService } from 'src/app/providers/movie.service';
 
@@ -10,7 +11,7 @@ import { MovieService } from 'src/app/providers/movie.service';
 export class HomePageComponent implements OnInit {
 
 
-  constructor() {
+  constructor(private _router: Router) {
 
   }
 
@@ -19,6 +20,24 @@ export class HomePageComponent implements OnInit {
 
   }
 
+  onValueEmitted(valueEmitted: any) {
+    if (valueEmitted === 'Watch Later') {
+      this._router.navigateByUrl('/watch_later').then(() => {
+      });
+    } else if (valueEmitted === 'Trending') {
+      this._router.navigateByUrl('/trending').then(() => {
+      });
+    } else if (valueEmitted === 'Coming Soon') {
+      this._router.navigateByUrl('/coming_soon').then(() => {
+      });
+    } else if (valueEmitted === 'Favourites') {
+      this._router.navigateByUrl('/favourites').then(() => {
+      });
+    } else {
+      this._router.navigateByUrl('/new_release').then(() => {
+      });
+    }
+  }
 
 
 
