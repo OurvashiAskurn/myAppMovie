@@ -1,4 +1,5 @@
 <app-header></app-header>
-<div class="home-container">
-  <app-side-menu (valueEmitted)="onValueEmitted($event)"></app-side-menu>
-</div>
+<app-side-menu (valueEmitted)="onValueEmitted($event)"></app-side-menu>
+<app-movie-list></app-movie-list>
+
+<router-outlet></router-outlet>
