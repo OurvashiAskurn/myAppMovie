@@ -10,6 +10,7 @@ export class LoginComponent implements OnInit {
 
   isChecked: boolean;
   label: string;
+  showPassword: boolean;
 
   form = new FormGroup({
     email: new FormControl('', [
@@ -39,6 +40,10 @@ export class LoginComponent implements OnInit {
 
     rememberMe(check: boolean) {
       this.isChecked = check;
+    }
+
+    public togglePassword(): void {
+      this.showPassword = !this.showPassword;
     }
 
 }
