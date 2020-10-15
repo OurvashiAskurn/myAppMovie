@@ -45,8 +45,9 @@
             </div>
 
           </div>
+          <app-checkbox [checked]="isChecked" [label]="label" (checkChanged)="rememberMe($event)"></app-checkbox><br>
           <div class="form-group">
-            <button class="btn btn-primary"  [disabled]="!form.valid">Register</button>
+            <button class="btn btn-primary"  [disabled]="!form.valid">Login</button>
           </div>
         </form>
 
