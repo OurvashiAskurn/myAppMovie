@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -23,7 +24,8 @@ export class LoginComponent implements OnInit {
     ])
    });
 
-    constructor() {
+
+    constructor(private _router: Router) {
       this.isChecked = false;
     this.label = 'Stay Signed In';
      }
@@ -35,7 +37,9 @@ export class LoginComponent implements OnInit {
     }
 
     onSubmit(){
-
+      this._router.navigate(["/new_release"])
+      .then(() => {
+      });
     }
 
     rememberMe(check: boolean) {
