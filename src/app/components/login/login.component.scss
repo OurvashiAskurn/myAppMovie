@@ -93,15 +93,16 @@
         }
 
         button:disabled {
-          background-color: #ff6490;
+          background-color: #fdd6e1;
+          border: 0.2vw solid #fac6d5;
+          color: #fc80a3;
           opacity: 0.8;
           cursor: default;
         }
 
         button:disabled:hover {
-          background-color: #ff6490;
+          background-color: #fdd6e1;
           opacity: 0.8;
-          color: white;
         }
       }
     }
