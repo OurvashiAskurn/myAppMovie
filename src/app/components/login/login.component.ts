@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { MovieService } from 'src/app/providers/movie.service';
 
 @Component({
   selector: 'app-login',
@@ -12,6 +13,7 @@ export class LoginComponent implements OnInit {
   isChecked: boolean;
   label: string;
   showPassword: boolean;
+  email: string;
 
   form = new FormGroup({
     email: new FormControl('', [
@@ -25,7 +27,7 @@ export class LoginComponent implements OnInit {
    });
 
 
-    constructor(private _router: Router) {
+    constructor(private _router: Router, private _loginService: MovieService) {
       this.isChecked = false;
     this.label = 'Stay Signed In';
      }
@@ -37,10 +39,15 @@ export class LoginComponent implements OnInit {
     }
 
     onSubmit(){
-      this._router.navigate(["/new_release"])
-      .then(() => {
+    this._loginService.login().subscribe(token => {
+        localStorage.setItem("token", token);
+        this._router.navigate(["/new_release"]);
+      },
+      error => {
+        console.log(error);
       });
-    }
+  }
+
 
     rememberMe(check: boolean) {
       this.isChecked = check;

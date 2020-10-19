@@ -92,6 +92,18 @@ export class MovieService {
 
 
 
+  /*------------------------------------- login ------------------------------------*/
+  login(): Observable<any> {
+    return this.http.get(`https://api.themoviedb.org/3/authentication/token/new?api_key=fed69657ba4cc6e1078d2a6a95f51c8c`).pipe(
+      map ((response: any) => {
+        if (response.request_token) {
+          return response.request_token;
+        }
+      })
+    );
+  }
+
+
 
 }
 
