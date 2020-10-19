@@ -9,38 +9,38 @@ import { AuthGuard } from './guards/auth.guard';
 const routes: Routes = [
   {path: 'login', component: LoginComponent, pathMatch: 'full'},
   {path: '', component: HomePageComponent, canActivate: [AuthGuard], children: [
-  {path: '', redirectTo:'new_release', pathMatch: 'full'},
-  ]},
-  {path: 'new_release', children: [
-    {path: '', component: HomePageComponent},
-    {path: ':id', children: [
-      {path: '', component: MovieDetailComponent}
+    {path: '', redirectTo:'new_release', pathMatch: 'full'},
+    {path: 'new_release', children: [
+      {path: '', component: HomePageComponent},
+      {path: ':id', children: [
+        {path: '', component: MovieDetailComponent}
+      ]}
+    ]},
+    {path: 'trending', children: [
+      {path: '', component: HomePageComponent},
+      {path: ':id', children: [
+        {path: '', component: MovieDetailComponent}
+      ]}
+    ]},
+    {path: 'coming_soon', children: [
+      {path: '', component: HomePageComponent},
+      {path: ':id', children: [
+        {path: '', component: MovieDetailComponent}
+      ]}
+    ]},
+    {path: 'favourites', children: [
+      {path: '', component: HomePageComponent},
+      {path: ':id', children: [
+        {path: '', component: MovieDetailComponent}
+      ]}
+    ]},
+    {path: 'watch_later', children: [
+      {path: '', component: HomePageComponent},
+      {path: ':id', children: [
+        {path: '', component: MovieDetailComponent}
+      ]}
     ]}
   ]},
-  {path: 'trending', children: [
-    {path: '', component: HomePageComponent},
-    {path: ':id', children: [
-      {path: '', component: MovieDetailComponent}
-    ]}
-  ]},
-  {path: 'coming_soon', children: [
-    {path: '', component: HomePageComponent},
-    {path: ':id', children: [
-      {path: '', component: MovieDetailComponent}
-    ]}
-  ]},
-  {path: 'favourites', children: [
-    {path: '', component: HomePageComponent},
-    {path: ':id', children: [
-      {path: '', component: MovieDetailComponent}
-    ]}
-  ]},
-  {path: 'watch_later', children: [
-    {path: '', component: HomePageComponent},
-    {path: ':id', children: [
-      {path: '', component: MovieDetailComponent}
-    ]}
-  ]}
 ];
 
 @NgModule({
