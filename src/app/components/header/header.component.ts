@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import Movie from 'src/app/dto/movie';
 import { MovieService } from 'src/app/providers/movie.service';
 
@@ -13,7 +14,7 @@ export class HeaderComponent implements OnInit {
 
 @Output() emittedT: EventEmitter<any>;
 
-  constructor() {
+  constructor( private _router: Router) {
     this.emittedT = new EventEmitter();
    }
 
@@ -22,6 +23,11 @@ export class HeaderComponent implements OnInit {
 
   getSearchTerm(ev: any) {
     this.emittedT.emit(ev);
+  }
+
+  logout() {
+    localStorage.clear();
+    this._router.navigateByUrl("/login");
   }
 
 
