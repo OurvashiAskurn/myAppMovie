@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import Movie from 'src/app/dto/movie';
 import { MovieService } from 'src/app/providers/movie.service';
@@ -10,7 +10,6 @@ import { MovieService } from 'src/app/providers/movie.service';
 })
 export class HomePageComponent implements OnInit {
 
-
   constructor(private _router: Router) {
 
   }
@@ -20,7 +19,7 @@ export class HomePageComponent implements OnInit {
 
   }
 
-  onValueEmitted(valueEmitted: any) {
+  onValueEmitted(valueEmitted: string) {
     if (valueEmitted === 'Watch Later') {
       this._router.navigateByUrl('/watch_later').then(() => {
       });
@@ -38,6 +37,7 @@ export class HomePageComponent implements OnInit {
       });
     }
   }
+
 
 
 

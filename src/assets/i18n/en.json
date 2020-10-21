@@ -17,8 +17,8 @@
   },
 
   "MOVIE_LIST": {
-    "GENRE": "Genre",
-    "RATING": "Rating"
+      "GENRE": "Genre",
+      "RATING": "Rating"
   },
 
   "HEADER" : {
@@ -32,7 +32,7 @@
   },
 
   "MOVIE_DETAIL": {
-    "OVERVIEW": "Overview"
+      "OVERVIEW": "Overview"
   }
 
 

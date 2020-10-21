@@ -12,7 +12,7 @@ export class SideMenuComponent implements OnInit {
 
   constructor() {
     this.categorySelected = "Movies";
-    this.categorySelected = "New Release"
+    this.categorySelected = "";
   }
 
   ngOnInit() {
