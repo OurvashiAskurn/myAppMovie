@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { MovieService } from 'src/app/providers/movie.service';
 
 @Component({
@@ -27,15 +28,16 @@ export class LoginComponent implements OnInit {
    });
 
 
-    constructor(private _router: Router, private _loginService: MovieService) {
+    constructor(private _router: Router, private _loginService: MovieService, private translate: TranslateService) {
+
       this.isChecked = false;
-    this.label = 'Stay Signed In';
+      this.translate.setDefaultLang('en');
+
      }
 
 
     ngOnInit() {
       this.isChecked = false;
-    this.label = 'Stay Signed In';
     }
 
     onSubmit(){
@@ -48,6 +50,10 @@ export class LoginComponent implements OnInit {
       });
   }
 
+  public changeLanguage(langCode: string): void {
+    this.translate.setDefaultLang(langCode);
+    localStorage.setItem("language", langCode);
+  }
 
     rememberMe(check: boolean) {
       this.isChecked = check;

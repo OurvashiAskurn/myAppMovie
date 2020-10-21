@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import Movie from 'src/app/dto/movie';
 import { MovieService } from 'src/app/providers/movie.service';
 
@@ -16,12 +17,13 @@ export class MovieListComponent implements OnInit {
   filterList: Movie[] ;
   movieList: Movie[];
 
-  constructor(private _moviesService: MovieService, private _router: Router) {
+  constructor(private _moviesService: MovieService, private _router: Router, private translate: TranslateService) {
     this.displayValue = '';
     this.searchTerm = '';
     this.movies = [];
     this.movieList = [];
     this.filterList = [];
+    this.translate.setDefaultLang('en');
     if (this._router.url.startsWith('/coming_soon')) {
       this.getComingSoonMovies();
       this.displayValue = "Coming Soon";
@@ -122,6 +124,11 @@ export class MovieListComponent implements OnInit {
     this._router.navigate([this._router.url, movie.id])
       .then(() => {
       });
+  }
+
+  public changeLanguage(langCode: string): void {
+    this.translate.setDefaultLang(langCode);
+    localStorage.setItem("language", langCode);
   }
 
 

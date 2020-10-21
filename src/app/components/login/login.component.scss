@@ -6,6 +6,59 @@
   box-sizing: border-box;
   background: linear-gradient(to bottom right, #010179 0%, #ff2462 100%);
 
+  .changeLanguage {
+    color: white;
+    margin-top: -5vw;
+    float: right;
+    position: relative;
+    display: inline;
+    cursor: pointer;
+    margin-right: 4vw;
+
+     .dropbtn {
+      width: 2vw;
+      margin-bottom: -1vw;
+      margin-top: -0.5vw;
+      padding: 0.4vw 0.5vw;
+      cursor: pointer;
+      margin-left: 50%;
+
+        .translate {
+          width: 2vw;
+        }
+
+        .dropdown-content {
+          display: none;
+          position: absolute;
+          background-color: #f1f1f1;
+          min-width:6vw;
+          box-shadow: 0vw 0.15vw 0.3vw 0.15vw rgb(82, 82, 82);
+          z-index: 4;
+          margin-top: 0.45vw;
+          margin-left: -3vw;
+        }
+
+        .dropdown-content a {
+          color: black;
+          padding: 0.5vw 1.2vw;
+          text-decoration: none;
+          display: block;
+        }
+    }
+
+    .dropbtn:hover {
+      background-color: #fa326b;
+    }
+
+    .dropbtn:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #ddd;
+    }
+  }
+
 
   .FormContainer {
     margin: auto;
@@ -80,7 +133,7 @@
           margin-top: 0.2vw;
           border-left: 0.1vw solid rgb(255, 223, 243) ;
           background-color:  #ffbbce;
-          padding: 0.6vw 0.3vw 0.6vw 0.5vw;
+          padding: 0.6vw 0.3vw 0.72vw 0.5vw;
           border-radius: 0vw 0.4vw 0vw 0vw;
           cursor: pointer;
         }

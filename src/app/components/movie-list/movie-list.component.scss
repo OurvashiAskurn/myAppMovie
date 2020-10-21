@@ -4,6 +4,60 @@
   margin-left: 21.5%;
   margin-top: 5vw;
 
+  .changeLanguage2 {
+    color: white;
+    margin-top: 42vw;
+    float: right;
+    position: absolute;
+    display: inline;
+    cursor: pointer;
+    margin-left: 93%;
+    z-index: 8;
+
+     .dropbtn2 {
+      width: 2vw;
+      padding: 0.4vw 0.5vw;
+      cursor: pointer;
+      margin-left: 50%;
+
+        .translate2 {
+          width: 2vw;
+          background-color: white;
+          border-radius: 0.5vw;
+        }
+
+        .dropdown-content2 {
+          display: none;
+          position: absolute;
+          background-color: #f1f1f1;
+          min-width:6vw;
+          box-shadow: -0.1vw -0.1vw 0.5vw 0.05vw rgb(82, 82, 82);
+          margin-top: -6.8vw;
+          margin-left: -3vw;
+        }
+
+        .dropdown-content2 a {
+          color: black;
+          padding: 0.5vw 1.2vw;
+          text-decoration: none;
+          display: block;
+          z-index: 8;
+        }
+    }
+
+    .dropbtn2:hover {
+      background-color: #fa326b;
+    }
+
+    .dropbtn2:hover .dropdown-content2 {
+      display: block;
+    }
+
+    .dropdown-content2 a:hover {
+      background-color: #ddd;
+    }
+  }
+
   .movieCategory {
     position: absolute;
     margin-left: 5vw;

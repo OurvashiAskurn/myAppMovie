@@ -1,0 +1,38 @@
+{
+  "LOGIN": {
+      "TITLE": "BIENVENUE",
+      "EMAIL_LABEL": "Email",
+      "PASSWORD_LABEL": "Mot de passe",
+      "CHECKBOX_SIGNIN": "Rester connecté",
+      "EMAIL_REQUIRED": "Email est requis",
+      "INVALID_EMAIL": "Adresse e-mail invalide",
+      "PASS_REQUIRED": "Mot de passe requis",
+      "MIN_PASS": "Minimum 6 caractères requis",
+      "LOGIN_BTN": "Connexion",
+
+      "FOOTER": {
+        "ITEM_1": "English",
+        "ITEM_2": "French"
+    }
+  },
+
+  "MOVIE_LIST": {
+      "GENRE": "Genre",
+      "RATING": "Note"
+  },
+
+  "HEADER" : {
+      "SETTING": "Réglages",
+      "PROFILE": "Profil",
+      "LOGOUT": "Déconnexion"
+  },
+
+  "SEARCH" : {
+      "SEARCH": "Rechercher des films"
+  }
+
+
+
+
+}
+

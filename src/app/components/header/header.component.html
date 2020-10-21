@@ -11,9 +11,9 @@
     <div class="dropbtn">
       <img src="../../../assets/imgs/settings.svg" alt="" class="settings">
       <div class="dropdown-content">
-        <a href="#">Settings</a>
-        <a href="#">Profile</a>
-        <a (click)="logout()">Logout </a>
+        <a href="#">{{ 'HEADER.SETTING' | translate }}</a>
+        <a href="#">{{ 'HEADER.PROFILE' | translate }}</a>
+        <a (click)="logout()">{{ 'HEADER.LOGOUT' | translate }} </a>
       </div>
     </div>
 
