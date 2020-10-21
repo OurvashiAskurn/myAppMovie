@@ -29,6 +29,10 @@
 
   "SEARCH" : {
       "SEARCH": "Search Movies"
+  },
+
+  "MOVIE_DETAIL": {
+    "OVERVIEW": "Overview"
   }
 
 
