@@ -1,38 +1,38 @@
 {
-  "LOGIN": {
-      "TITLE": "WELCOME",
-      "EMAIL_LABEL": "Email",
-      "PASSWORD_LABEL": "Password",
-      "CHECKBOX_SIGNIN": "Stay Signed In",
-      "EMAIL_REQUIRED": "Email is required",
-      "INVALID_EMAIL": "Invalid Email Address",
-      "PASS_REQUIRED": "Password is required",
-      "MIN_PASS": "Minimum 6 characters required",
-      "LOGIN_BTN": "Login",
+  "login": {
+      "title": "WELCOME",
+      "email_label": "Email",
+      "pass_label": "Password",
+      "checkbox_signin": "Stay Signed In",
+      "email_required": "Email is required",
+      "invalid_email": "Invalid Email Address",
+      "pass_required": "Password is required",
+      "min_pass": "Minimum 6 characters required",
+      "login_btn": "Login",
 
-      "FOOTER": {
-        "ITEM_1": "English",
-        "ITEM_2": "French"
+      "lang": {
+        "item_1": "English",
+        "item_2": "French"
       }
   },
 
-  "MOVIE_LIST": {
-      "GENRE": "Genre",
-      "RATING": "Rating"
+  "movie_list": {
+      "genre": "Genre",
+      "rating": "Rating"
   },
 
-  "HEADER" : {
-      "SETTING": "Settings",
-      "PROFILE": "Profile",
-      "LOGOUT": "Logout"
+  "header" : {
+      "setting": "Settings",
+      "profile": "Profile",
+      "logout": "Logout"
   },
 
-  "SEARCH" : {
-      "SEARCH": "Search Movies"
+  "search" : {
+      "search": "Search Movies"
   },
 
-  "MOVIE_DETAIL": {
-      "OVERVIEW": "Overview"
+  "movie_detail": {
+      "overview": "Overview"
   }
 
 

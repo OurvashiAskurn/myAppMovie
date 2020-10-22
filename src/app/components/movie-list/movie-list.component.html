@@ -10,8 +10,8 @@
     <div class="dropbtn2">
       <img src="https://i.pinimg.com/originals/ba/84/8d/ba848da92768204f75906e49aa50bec0.png" alt="" class="translate2">
       <div class="dropdown-content2">
-        <a (click)="changeLanguage('en')">{{ 'LOGIN.FOOTER.ITEM_1' | translate }}</a>
-        <a (click)="changeLanguage('fr')">{{ 'LOGIN.FOOTER.ITEM_2' | translate }} </a>
+        <a (click)="changeLanguage('en')">{{ 'login.lang.item_1' | translate }}</a>
+        <a (click)="changeLanguage('fr')">{{ 'login.lang.item_2' | translate }} </a>
       </div>
     </div>
   </div>
@@ -24,8 +24,8 @@
     <div class="movieContent">
       <img src="{{ movie.imageUrl }}" alt="Not available" class="poster"><br>
       <b>{{ movie.title }}</b><br>
-      <span class="subDivision">{{ 'MOVIE_LIST.GENRE' | translate }}: {{ movie.genres }}</span><br>
-      <span class="subDivision">{{ 'MOVIE_LIST.RATING' | translate }}: <span class="rating">{{ movie.rating}} <span class="star"> <img src="https://www.clker.com/cliparts/p/i/0/Y/B/m/large-yellow-star-md.png" alt=""></span></span></span>
+      <span class="subDivision">{{ 'movie_list.genre' | translate }}: {{ movie.genres }}</span><br>
+      <span class="subDivision">{{ 'movie_list.rating' | translate }}: <span class="rating">{{ movie.rating}} <span class="star"> <img src="https://www.clker.com/cliparts/p/i/0/Y/B/m/large-yellow-star-md.png" alt=""></span></span></span>
     </div>
   </div>
 </div>
@@ -35,7 +35,7 @@
     <div class="movieContent" >
       <img src="https://image.tmdb.org/t/p/w300{{ movie2.imageUrl }}" alt="Not available" class="poster"><br>
       <b>{{ movie2.title }}</b><br><br>
-      <span class="subDivision">{{ 'MOVIE_LIST.RATING' | translate }}: <span class="rating">{{ movie2.rating}} <span class="star"> <img src="https://www.clker.com/cliparts/p/i/0/Y/B/m/large-yellow-star-md.png" alt=""></span></span></span>
+      <span class="subDivision">{{ 'movie_list.rating' | translate }}: <span class="rating">{{ movie2.rating}} <span class="star"> <img src="https://www.clker.com/cliparts/p/i/0/Y/B/m/large-yellow-star-md.png" alt=""></span></span></span>
     </div>
   </div>
 </div>

@@ -4,8 +4,8 @@
     <div class="dropbtn">
       <img src="https://i.pinimg.com/originals/ba/84/8d/ba848da92768204f75906e49aa50bec0.png" alt="" class="translate">
       <div class="dropdown-content">
-        <a (click)="changeLanguage('en')">{{ 'LOGIN.FOOTER.ITEM_1' | translate }}</a>
-        <a (click)="changeLanguage('fr')">{{ 'LOGIN.FOOTER.ITEM_2' | translate }} </a>
+        <a (click)="changeLanguage('en')">{{ 'login.lang.item_1' | translate }}</a>
+        <a (click)="changeLanguage('fr')">{{ 'login.lang.item_2' | translate }} </a>
       </div>
     </div>
 </div>
@@ -13,33 +13,33 @@
   <div class="FormContainer">
     <div class="formContent">
       <h1>MEDIA APP</h1><br>
-      <div class="welcome">{{ 'LOGIN.TITLE' | translate }}</div>
+      <div class="welcome">{{ 'login.title' | translate }}</div>
 
         <form name="form" [formGroup]="form" (ngSubmit)="form.valid && onSubmit()">
 
           <div class="form-group">
-            <label for="email">{{ 'LOGIN.EMAIL_LABEL' | translate}}</label><br>
-            <input placeholder="{{ 'LOGIN.EMAIL_LABEL' | translate}}" type="text" class="form-control" formControlName="email" [ngClass]="{'is-invalid':form.get('email').touched && form.get('email').invalid}"   />
+            <label for="email">{{ 'login.email_label' | translate}}</label><br>
+            <input placeholder="{{ 'login.email_label' | translate}}" type="text" class="form-control" formControlName="email" [ngClass]="{'is-invalid':form.get('email').touched && form.get('email').invalid}"   />
             <div *ngIf="form.get('email').touched && form.get('email').invalid"  class="invalid-feedback">
-              <div *ngIf="form.get('email').errors.required">{{ 'LOGIN.EMAIL_REQUIRED' | translate}}</div>
-              <div *ngIf="form.get('email').errors.email">{{ 'LOGIN.INVALID_EMAIL' | translate}}</div>
+              <div *ngIf="form.get('email').errors.required">{{ 'login.email_required' | translate}}</div>
+              <div *ngIf="form.get('email').errors.email">{{ 'login.invalid_email' | translate}}</div>
             </div>
           </div>
 
           <div class="form-group">
-            <label for="password">{{ 'LOGIN.PASSWORD_LABEL' | translate}}</label><br>
+            <label for="password">{{ 'login.pass_label' | translate}}</label><br>
             <!--<div class="eye"><img src="../../../assets/imgs/eye.svg" alt=""></div>  -->
-            <input placeholder="{{ 'LOGIN.PASSWORD_LABEL' | translate}}"  [type]="(showPassword) ? 'text' : 'password'" formControlName="password" class="form-control"  [ngClass]="{'is-invalid':form.get('password').touched && form.get('password').invalid}" />
+            <input placeholder="{{ 'login.pass_label' | translate}}"  [type]="(showPassword) ? 'text' : 'password'" formControlName="password" class="form-control"  [ngClass]="{'is-invalid':form.get('password').touched && form.get('password').invalid}" />
             <i [ngClass]="(showPassword) ? 'far fa-eye-slash eye-icon' : 'far fa-eye eye-icon'" (click)="togglePassword()"></i>
             <div *ngIf="form.get('password').touched && form.get('password').invalid"  class="invalid-feedback">
-              <div *ngIf="form.get('password').errors.required">{{ 'LOGIN.PASS_REQUIRED' | translate}}</div>
-              <div *ngIf="form.get('password').errors.minlength">{{ 'LOGIN.MIN_PASS' | translate}}</div>
+              <div *ngIf="form.get('password').errors.required">{{ 'login.pass_required' | translate}}</div>
+              <div *ngIf="form.get('password').errors.minlength">{{ 'login.min_pass' | translate}}</div>
             </div>
           </div>
 
-          <app-checkbox label="{{ 'LOGIN.CHECKBOX_SIGNIN' | translate }}" [checked]="isChecked" [label]="label" (checkChanged)="rememberMe($event)"></app-checkbox><br>
+          <app-checkbox label="{{ 'login.checkbox_signin' | translate }}" [checked]="isChecked" [label]="label" (checkChanged)="rememberMe($event)"></app-checkbox><br>
           <div class="form-group">
-            <button class="btn btn-primary"  [disabled]="!form.valid">{{ 'LOGIN.LOGIN_BTN' | translate}}</button>
+            <button class="btn btn-primary"  [disabled]="!form.valid">{{ 'login.login_btn' | translate}}</button>
           </div><br><br>
         </form>
 

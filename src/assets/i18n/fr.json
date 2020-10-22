@@ -1,38 +1,38 @@
 {
-  "LOGIN": {
-      "TITLE": "BIENVENUE",
-      "EMAIL_LABEL": "Adresse E-mail",
-      "PASSWORD_LABEL": "Mot de passe",
-      "CHECKBOX_SIGNIN": "Rester connecté",
-      "EMAIL_REQUIRED": "Email est requis",
-      "INVALID_EMAIL": "Adresse e-mail invalide",
-      "PASS_REQUIRED": "Mot de passe requis",
-      "MIN_PASS": "Minimum 6 caractères requis",
-      "LOGIN_BTN": "Connexion",
+  "login": {
+      "title": "BIENVENUE",
+      "email_label": "Adresse E-mail",
+      "pass_label": "Mot de passe",
+      "checkbox_signin": "Rester connecté",
+      "email_required": "Email est requis",
+      "invalid_email": "Adresse e-mail invalide",
+      "pass_required": "Mot de passe requis",
+      "min_pass": "Minimum 6 caractères requis",
+      "login_btn": "Connexion",
 
-      "FOOTER": {
-        "ITEM_1": "English",
-        "ITEM_2": "French"
+      "lang": {
+        "item_1": "English",
+        "item_2": "French"
     }
   },
 
-  "MOVIE_LIST": {
-      "GENRE": "Genre",
-      "RATING": "Note"
+  "movie_list": {
+      "genre": "Genre",
+      "rating": "Note"
   },
 
-  "HEADER" : {
-      "SETTING": "Réglages",
-      "PROFILE": "Profil",
-      "LOGOUT": "Déconnexion"
+  "header" : {
+      "setting": "Réglages",
+      "profile": "Profil",
+      "logout": "Déconnexion"
   },
 
-  "SEARCH" : {
-      "SEARCH": "Rechercher des films"
+  "search" : {
+      "search": "Rechercher des films"
   },
 
-  "MOVIE_DETAIL": {
-    "OVERVIEW": "Description"
+  "movie_detail": {
+    "overview": "Description"
   }
 
 
