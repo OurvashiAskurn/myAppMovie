@@ -19,7 +19,7 @@
 
           <div class="form-group">
             <label for="email">{{ 'LOGIN.EMAIL_LABEL' | translate}}</label><br>
-            <input placeholder="Email" type="text" class="form-control" formControlName="email" [ngClass]="{'is-invalid':form.get('email').touched && form.get('email').invalid}"   />
+            <input placeholder="{{ 'LOGIN.EMAIL_LABEL' | translate}}" type="text" class="form-control" formControlName="email" [ngClass]="{'is-invalid':form.get('email').touched && form.get('email').invalid}"   />
             <div *ngIf="form.get('email').touched && form.get('email').invalid"  class="invalid-feedback">
               <div *ngIf="form.get('email').errors.required">{{ 'LOGIN.EMAIL_REQUIRED' | translate}}</div>
               <div *ngIf="form.get('email').errors.email">{{ 'LOGIN.INVALID_EMAIL' | translate}}</div>
@@ -29,7 +29,7 @@
           <div class="form-group">
             <label for="password">{{ 'LOGIN.PASSWORD_LABEL' | translate}}</label><br>
             <!--<div class="eye"><img src="../../../assets/imgs/eye.svg" alt=""></div>  -->
-            <input placeholder="Password"  [type]="(showPassword) ? 'text' : 'password'" formControlName="password" class="form-control"  [ngClass]="{'is-invalid':form.get('password').touched && form.get('password').invalid}" />
+            <input placeholder="{{ 'LOGIN.PASSWORD_LABEL' | translate}}"  [type]="(showPassword) ? 'text' : 'password'" formControlName="password" class="form-control"  [ngClass]="{'is-invalid':form.get('password').touched && form.get('password').invalid}" />
             <i [ngClass]="(showPassword) ? 'far fa-eye-slash eye-icon' : 'far fa-eye eye-icon'" (click)="togglePassword()"></i>
             <div *ngIf="form.get('password').touched && form.get('password').invalid"  class="invalid-feedback">
               <div *ngIf="form.get('password').errors.required">{{ 'LOGIN.PASS_REQUIRED' | translate}}</div>
