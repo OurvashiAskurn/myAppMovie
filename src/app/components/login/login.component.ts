@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit {
 
   public changeLanguage(langCode: string): void {
     this.translate.setDefaultLang(langCode);
-    localStorage.setItem("language", langCode);
+
   }
 
     rememberMe(check: boolean) {

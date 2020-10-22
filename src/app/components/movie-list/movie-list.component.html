@@ -1,5 +1,5 @@
 <app-header (emittedT)="getValue($event)"></app-header>
-
+<app-side-menu  (valueEmitted)="onValueEmitted($event)"></app-side-menu>
 <div class="viewMovies">
   <div class="movieCategory">
     <div class="subTitle"> {{ displayValue }} </div>
@@ -31,11 +31,11 @@
 </div>
 
 <div *ngIf="displayValue === 'Coming Soon' || displayValue === 'Trending' " class="movieContainer">
-  <div *ngFor="let movie of movies" (click)="viewDetails(movie)">
+  <div *ngFor="let movie2 of movies" (click)="viewDetails(movie2)">
     <div class="movieContent" >
-      <img src="https://image.tmdb.org/t/p/w300{{ movie.imageUrl }}" alt="Not available" class="poster"><br>
-      <b>{{ movie.title }}</b><br><br>
-      <span class="subDivision">{{ 'MOVIE_LIST.RATING' | translate }}: <span class="rating">{{ movie.rating}} <span class="star"> <img src="https://www.clker.com/cliparts/p/i/0/Y/B/m/large-yellow-star-md.png" alt=""></span></span></span>
+      <img src="https://image.tmdb.org/t/p/w300{{ movie2.imageUrl }}" alt="Not available" class="poster"><br>
+      <b>{{ movie2.title }}</b><br><br>
+      <span class="subDivision">{{ 'MOVIE_LIST.RATING' | translate }}: <span class="rating">{{ movie2.rating}} <span class="star"> <img src="https://www.clker.com/cliparts/p/i/0/Y/B/m/large-yellow-star-md.png" alt=""></span></span></span>
     </div>
   </div>
 </div>

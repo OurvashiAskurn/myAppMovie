@@ -26,19 +26,14 @@ export class MovieListComponent implements OnInit {
     this.translate.setDefaultLang('en');
     if (this._router.url.startsWith('/coming_soon')) {
       this.getComingSoonMovies();
-      this.displayValue = "Coming Soon";
     } else if (this._router.url.startsWith('/trending')) {
       this.getTrendingMovies();
-      this.displayValue = "Trending";
     } else if (this._router.url.startsWith('/favourites')) {
       this.getMovies();
-      this.displayValue = "Favourites";
     } else if (this._router.url.startsWith('/watch_later')) {
       this.getMovies();
-      this.displayValue = "Watch Later";
-    } else {
+    } else if (this._router.url.startsWith('/new_release')){
       this.getMovies();
-      this.displayValue = "New Release";
     }
   }
 
@@ -59,20 +54,30 @@ export class MovieListComponent implements OnInit {
     this.searchTerm = '';
     if (this._router.url.startsWith('/coming_soon')) {
       this.getComingSoonMovies();
-      this.displayValue = "Coming Soon";
     } else if (this._router.url.startsWith('/trending')) {
       this.getTrendingMovies();
-      this.displayValue = "Trending";
     } else if (this._router.url.startsWith('/favourites')) {
       this.getMovies();
-      this.displayValue = "Favourites";
     } else if (this._router.url.startsWith('/watch_later')) {
       this.getMovies();
-      this.displayValue = "Watch Later";
-    } else {
+    } else if (this._router.url.startsWith('/new_release')){
       this.getMovies();
-      this.displayValue = "New Release";
     }
+  }
+
+    onValueEmitted(valueEmitted: string) {
+      this.displayValue = valueEmitted;
+      if (valueEmitted === 'Watch Later') {
+        this._router.navigateByUrl('/watch_later');
+      } else if (valueEmitted === 'Trending') {
+        this._router.navigateByUrl('/trending');
+      } else if (valueEmitted === 'Coming Soon') {
+        this._router.navigateByUrl('/coming_soon');
+      } else if (valueEmitted === 'Favourites') {
+        this._router.navigateByUrl('/favourites');
+      } else {
+        this._router.navigateByUrl('/new_release');
+      }
     }
 
   getValue(event: any) {
@@ -128,7 +133,6 @@ export class MovieListComponent implements OnInit {
 
   public changeLanguage(langCode: string): void {
     this.translate.setDefaultLang(langCode);
-    localStorage.setItem("language", langCode);
   }
 
 
