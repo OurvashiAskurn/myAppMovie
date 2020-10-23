@@ -69,17 +69,7 @@ export class MovieListComponent implements OnInit {
 
     onValueEmitted(valueEmitted: string) {
       this.displayValue = valueEmitted;
-      if (valueEmitted === 'Watch Later') {
-        this._router.navigateByUrl('/watch_later');
-      } else if (valueEmitted === 'Trending') {
-        this._router.navigateByUrl('/trending');
-      } else if (valueEmitted === 'Coming Soon') {
-        this._router.navigateByUrl('/coming_soon');
-      } else if (valueEmitted === 'Favourites') {
-        this._router.navigateByUrl('/favourites');
-      } else {
-        this._router.navigateByUrl('/new_release');
-      }
+
     }
 
   getValue(event: any) {

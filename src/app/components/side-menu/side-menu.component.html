@@ -1,6 +1,6 @@
 <div class="menu-container">
-  <a class="menu-list " (click)="retrieveName('New Releases')" [class.selected]="categorySelected === 'New Releases'">New Releases</a>
-    <a class="menu-list" (click)="retrieveName('Trending')" [class.selected]="categorySelected === 'Trending'">Trending</a>
+  <a routerLink="/new_release" routerLinkActive="active" class="menu-list " (click)="retrieveName('New Releases')" >New Releases</a>
+    <a routerLink="/trending" routerLinkActive="active" class="menu-list" (click)="retrieveName('Trending')" [class.selected]="categorySelected === 'Trending'">Trending</a>
     <a class="menu-list" (click)="retrieveName('Coming Soon')" [class.selected]="categorySelected === 'Coming Soon'">Coming Soon</a>
     <a class="menu-list" (click)="retrieveName('Favourites')" [class.selected]="categorySelected === 'Favourites'">Favourites</a>
     <a class="menu-list" (click)="retrieveName('Watch Later')" [class.selected]="categorySelected === 'Watch Later'">Watch Later</a>
