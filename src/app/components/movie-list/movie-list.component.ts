@@ -23,7 +23,9 @@ export class MovieListComponent implements OnInit {
     this.movies = [];
     this.movieList = [];
     this.filterList = [];
+
     this.translate.setDefaultLang('en');
+
     if (this._router.url.startsWith('/coming_soon')) {
       this.getComingSoonMovies();
     } else if (this._router.url.startsWith('/trending')) {
@@ -91,6 +93,41 @@ export class MovieListComponent implements OnInit {
     }​​​​ else {​​​​
       this.filterList = this.movies;
     }​​​​
+  }
+
+  filterBy(filter: string) {
+    if (filter === 'all') {
+      this.filterList = this.movies;
+      this.movieList = this.movies
+      console.log('all');
+
+    } else if (filter === 'positive'){
+      this.filterList = this.movies.filter(movie => {​​​​
+        return parseInt(movie.rating) > 8;
+      }​​​​);
+      this.movieList = this.movies.filter(movie => {​​​​
+        return parseInt(movie.rating) > 6;
+      }​​​​);
+      console.log('positive');
+
+    } else if (filter === 'neutral'){
+      this.filterList = this.movies.filter(movie => {​​​​
+        return (parseInt(movie.rating) > 7 && parseInt(movie.rating) < 9);
+      }​​​​);
+      this.movieList = this.movies.filter(movie => {​​​​
+        return (parseInt(movie.rating) > 4 && parseInt(movie.rating) < 6);
+      }​​​​);
+      console.log('neutral');
+
+    } else if (filter === 'negative'){
+      this.filterList = this.movies.filter(movie => {​​​​
+        return parseInt(movie.rating) < 8 ;
+      }​​​​);
+      this.movieList = this.movies.filter(movie => {​​​​
+        return parseInt(movie.rating) < 5 ;
+      }​​​​);
+      console.log('negative');
+    }
   }
 
 

@@ -4,6 +4,26 @@
   margin-left: 21.5%;
   margin-top: 5vw;
 
+  .sort {
+    margin-left: 120%;
+    display: flex;
+
+    button {
+      padding: 0.5vw 1vw;
+      background-color: white;
+      color: black;
+      margin-right: 1.5vw;
+      border-radius: 1vw;
+      cursor: pointer;
+      position: row;
+      z-index: 8;
+    }
+
+    &.active {
+      background-color: black;
+    }
+  }
+
   .changeLanguage2 {
     color: white;
     margin-left: 73%;
