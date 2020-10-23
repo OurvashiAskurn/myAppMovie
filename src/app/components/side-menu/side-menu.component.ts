@@ -16,13 +16,6 @@ export class SideMenuComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.movieCategory = [
-      "New Release",
-      "Trending",
-      "Coming Soon",
-      "Favourites",
-      "Watch Later"
-    ];
   }
 
   retrieveName(name: string) {

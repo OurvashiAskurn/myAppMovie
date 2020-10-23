@@ -19,14 +19,14 @@
 
 <br><br><br><br><br>
 
-<div class="sort">
+<!-- <div class="sort">
   <button [class.active]="filterBy === 'all'" (click)="filterBy('all')" >All</button>
   <button [class.active]="filterBy === 'positive'" (click)="filterBy('positive')" >Positive</button>
   <button [class.active]="filterBy === 'neutral'" (click)="filterBy('neutral')" >Neutral</button>
   <button [class.active]="filterBy === 'negative'" (click)="filterBy('negative')" >Negative</button>
-</div><br><br>
+</div><br><br>-->
 
-<div *ngIf="displayValue === 'New Release' || displayValue === 'Favourites'  || displayValue === 'Watch Later' " class="movieContainer">
+<div *ngIf="displayValue === 'New Releases' || displayValue === 'Favourites'  || displayValue === 'Watch Later' " class="movieContainer">
   <div  *ngFor="let movie of filterList">
     <div class="movieContent">
       <img src="{{ movie.imageUrl }}" alt="Not available" class="poster"><br>
