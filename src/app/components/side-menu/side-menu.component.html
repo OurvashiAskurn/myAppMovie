@@ -1,8 +1,8 @@
 
 <div class="menu-container">
 
-  <div class="menu-list" *ngFor="let menu of menus" (click)="selectMenu(menu.id)" >
-    <div class="menu-title">{{ menu.name | translate }}</div>
+  <div class="menu-list" *ngFor="let menu of menus" (click)="selectMenu(menu)"  [class.selected]="genreSelected === menu">
+    <div class="menu-title">{{ menu | translate }}</div>
   </div>
 </div>
 

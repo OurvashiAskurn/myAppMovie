@@ -8,26 +8,28 @@ import { Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 export class SideMenuComponent implements OnInit {
    selectedName: string;
   menus: any[];
-  @Output() selectedMenu: EventEmitter<number>;
+  @Output() selectedMenu: EventEmitter<string>;
+  @Input('genreSelected') genreSelected: string;
 
   constructor() {
     this.selectedName = '';
 
     this.menus = [
-      {id: 0, name: 'New Release'},
-      {id: 1, name: 'Trending'},
-      {id: 2, name: 'Coming Soon'},
-      {id: 3, name: 'Favourites'},
-      {id: 4, name: 'Watch Later'}
+      'New Release',
+      'Trending',
+      'Coming Soon',
+      'Favourites',
+      'Watch Later'
     ];
-    this.selectedMenu = new EventEmitter<number>();
+    this.selectedMenu = new EventEmitter<string>();
   }
 
   ngOnInit() {
   }
 
 
-  selectMenu(id: number) {
+  selectMenu(id: string) {
+    this.genreSelected = id;
     this.selectedMenu.emit(id);
   }
 

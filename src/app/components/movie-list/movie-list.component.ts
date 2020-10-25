@@ -88,17 +88,17 @@ export class MovieListComponent implements OnInit {
 
 
  //get id from side menu and extend url
- selectMenu(id: number) {
-  if (id === 4) {
+ selectMenu(id: string) {
+  if (id === 'Watch Later') {
     this._router.navigateByUrl('/watch_later').then(() => {
     });
-  } else if (id === 1) {
+  } else if (id === 'Trending') {
     this._router.navigateByUrl('/trending').then(() => {
     });
-  } else if (id === 2) {
+  } else if (id === 'Coming Soon') {
     this._router.navigateByUrl('/coming_soon').then(() => {
     });
-  } else if (id === 3) {
+  } else if (id === 'Favourites') {
     this._router.navigateByUrl('/favourites').then(() => {
     });
   } else {
