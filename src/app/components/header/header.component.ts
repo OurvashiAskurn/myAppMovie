@@ -9,16 +9,23 @@ import { MovieService } from 'src/app/providers/movie.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-
-  movies: Movie[];
-
+  menus: any[];
+  @Output() selectedMenu: EventEmitter<number>;
 @Output() emittedT: EventEmitter<any>;
 
-  constructor( private _router: Router) {
-    this.emittedT = new EventEmitter();
-   }
 
-  ngOnInit(): void {
+  constructor(private _router: Router) {
+    this.menus = [{id: 0, name: 'upcoming'}, {id: 1, name: 'popular'}];
+    this.selectedMenu = new EventEmitter<number>();
+    this.emittedT = new EventEmitter();
+
+  }
+
+  ngOnInit() {
+  }
+
+  selectMenu(id: number) {
+    this.selectedMenu.emit(id);
   }
 
   getSearchTerm(ev: any) {

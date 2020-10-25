@@ -11,31 +11,31 @@ const routes: Routes = [
   {path: '', component: HomePageComponent, canActivate: [AuthGuard], children: [
     {path: '', redirectTo:'new_release', pathMatch: 'full'},
     {path: 'new_release', children: [
-      {path: '', component: HomePageComponent},
+      {path: '', component: MovieListComponent},
       {path: ':id', children: [
         {path: '', component: MovieDetailComponent}
       ]}
     ]},
     {path: 'trending', children: [
-      {path: '', component: HomePageComponent},
+      {path: '', component: MovieListComponent},
       {path: ':id', children: [
         {path: '', component: MovieDetailComponent}
       ]}
     ]},
     {path: 'coming_soon', children: [
-      {path: '', component: HomePageComponent},
+      {path: '', component: MovieListComponent},
       {path: ':id', children: [
         {path: '', component: MovieDetailComponent}
       ]}
     ]},
     {path: 'favourites', children: [
-      {path: '', component: HomePageComponent},
+      {path: '', component: MovieListComponent},
       {path: ':id', children: [
         {path: '', component: MovieDetailComponent}
       ]}
     ]},
     {path: 'watch_later', children: [
-      {path: '', component: HomePageComponent},
+      {path: '', component: MovieListComponent},
       {path: ':id', children: [
         {path: '', component: MovieDetailComponent}
       ]}

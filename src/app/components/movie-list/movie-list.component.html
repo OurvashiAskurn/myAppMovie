@@ -1,10 +1,16 @@
-<app-header (emittedT)="getValue($event)"></app-header>
-<app-side-menu  (valueEmitted)="onValueEmitted($event)"></app-side-menu>
-<div class="viewMovies">
+<div class="header">
+  <app-header (emittedT)="getValue($event)"></app-header>
+</div>
+
+<div class="sidemenu">
+  <app-side-menu (selectedMenu)="selectMenu($event)"></app-side-menu>
+</div>
+
+<div class="ViewMovies">
+
   <div class="movieCategory">
     <div class="subTitle"> {{ displayValue }} </div>
   </div>
-
 
   <div class="changeLanguage2">
     <div class="dropbtn2">
@@ -16,62 +22,38 @@
     </div>
   </div>
 
-
-<br><br><br><br><br>
-
-<!-- <div class="sort">
-  <button [class.active]="filterBy === 'all'" (click)="filterBy('all')" >All</button>
-  <button [class.active]="filterBy === 'positive'" (click)="filterBy('positive')" >Positive</button>
-  <button [class.active]="filterBy === 'neutral'" (click)="filterBy('neutral')" >Neutral</button>
-  <button [class.active]="filterBy === 'negative'" (click)="filterBy('negative')" >Negative</button>
-</div><br><br>-->
-
-<div *ngIf="displayValue === 'New Releases' || displayValue === 'Favourites'  || displayValue === 'Watch Later' " class="movieContainer">
-  <div  *ngFor="let movie of filterList">
-    <div class="movieContent">
-      <img src="{{ movie.imageUrl }}" alt="Not available" class="poster"><br>
-      <b>{{ movie.title }}</b><br>
-      <span class="subDivision">{{ 'movie_list.genre' | translate }}: {{ movie.genres }}</span><br>
-      <span class="subDivision">{{ 'movie_list.rating' | translate }}: <span class="rating">{{ movie.rating}} <span class="star"> <img src="https://www.clker.com/cliparts/p/i/0/Y/B/m/large-yellow-star-md.png" alt=""></span></span></span>
-    </div>
+  <div class="arrange">
+      <button (click)="filterBy('all')" >All</button>
+      <button (click)="filterBy('positive')" >Positive</button>
+      <button  (click)="filterBy('neutral')" >Neutral</button>
+      <button  (click)="filterBy('negative')" >Negative</button>
   </div>
-</div>
 
-<div *ngIf="displayValue === 'Coming Soon' || displayValue === 'Trending' " class="movieContainer">
-  <div *ngFor="let movie2 of movies" (click)="viewDetails(movie2)">
-    <div class="movieContent" >
-      <img src="https://image.tmdb.org/t/p/w300{{ movie2.imageUrl }}" alt="Not available" class="poster"><br>
-      <b>{{ movie2.title }}</b><br><br>
-      <span class="subDivision">{{ 'movie_list.rating' | translate }}: <span class="rating">{{ movie2.rating}} <span class="star"> <img src="https://www.clker.com/cliparts/p/i/0/Y/B/m/large-yellow-star-md.png" alt=""></span></span></span>
-    </div>
-  </div>
-</div>
-
-<!-- <div class="movieContainer">
-  <div  *ngFor="let movie of movies"  (click)="retrieveName(movies2)" [class.selected]="movieSelected === movies2">
-    <div class="movieContent" >
-      <img src="https://image.tmdb.org/t/p/w300{{ movie.imageUrl }}" alt="Not available" class="poster"><br>
-      <b>{{ movie.title }}</b><br><br>
-      <span class="subDivision">Rating: <span class="rating">{{ movie.rating}} <span class="star"> <img src="https://www.clker.com/cliparts/p/i/0/Y/B/m/large-yellow-star-md.png" alt=""></span></span></span>
-    </div>
-  </div>
-</div>
-
-    <div *ngIf="displayValue === 'New Release' || displayValue === 'Favourites'  || displayValue === 'Watch Later' " class="movieContainer">
-      <div  *ngFor="let movie of filterList">
-        <div class="movieContent">
-          <img src="{{ movie.imageUrl }}" alt="Not available" class="poster"><br>
-          <b>{{ movie.title }}</b><br>
-          <span class="subDivision">Genre: {{ movie.genres }}</span><br>
-          <span class="subDivision">Rating: <span class="rating">{{ movie.rating}} <span class="star"> <img src="https://www.clker.com/cliparts/p/i/0/Y/B/m/large-yellow-star-md.png" alt=""></span></span></span>
-        </div>
+  <div *ngIf="displayValue === 'New Release' || displayValue === 'Favourites'  || displayValue === 'Watch Later' " class="movieContainer">
+    <div  *ngFor="let movie of filterList">
+      <div class="movieContent">
+        <img src="{{ movie.imageUrl }}" alt="Not available" class="poster"><br>
+        <b>{{ movie.title }}</b><br>
+        <span class="subDivision">{{ 'movie_list.genre' | translate }}: {{ movie.genres }}</span><br>
+        <span class="subDivision">{{ 'movie_list.rating' | translate }}: <span class="rating">{{ movie.rating}} <span class="star"> <img src="https://www.clker.com/cliparts/p/i/0/Y/B/m/large-yellow-star-md.png" alt=""></span></span></span>
       </div>
-    </div>-->
+    </div>
+  </div>
 
+  <div *ngIf="displayValue === 'Coming Soon' || displayValue === 'Trending' " class="movieContainer">
+    <div *ngFor="let movie2 of movies" (click)="viewDetails(movie2)">
+      <div class="movieContent" >
+        <img src="https://image.tmdb.org/t/p/w300{{ movie2.imageUrl }}" alt="Not available" class="poster"><br>
+        <b>{{ movie2.title }}</b><br><br>
+        <span class="subDivision">{{ 'movie_list.rating' | translate }}: <span class="rating">{{ movie2.rating}} <span class="star"> <img src="https://www.clker.com/cliparts/p/i/0/Y/B/m/large-yellow-star-md.png" alt=""></span></span></span>
+      </div>
+    </div>
+  </div>
 
-
-
-
-
-
+  <!--<div class="movie-container" *ngFor="let movie of movies">
+    <div class="movie-item" (click)="viewDetails(movie)">
+      <div [ngStyle]="getBackground(movie.imageUrl)"></div>
+      <div> {{ movie.title }}</div>
+    </div>
+  </div> -->
 </div>

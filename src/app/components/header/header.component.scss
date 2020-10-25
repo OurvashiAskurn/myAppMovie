@@ -1,4 +1,6 @@
-.header {
+:host {
+
+  .header {
   color: white;
   padding: 1vw;
   display: flex;
@@ -11,20 +13,18 @@
     width: 20%;
     text-align: center;
     font-size: 1.5vw;
-    margin-top: 0.6vw;
+    margin-top: 0.5vw;
 
     a {
       text-decoration: none;
       color: white;
       margin-left: -1vw;
     }
-
   }
 
   .container2 {
     width: 70%;
     text-align: center;
-
   }
 
   .container3 {
@@ -74,12 +74,5 @@
     }
 
   }
-
-}
-
-@media only screen and (min-width: 600px) {
-
-}
-@media only screen and (min-width: 768px) {
-
+  }
 }

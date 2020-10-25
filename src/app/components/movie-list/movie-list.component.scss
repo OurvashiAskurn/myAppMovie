@@ -1,33 +1,39 @@
-.viewMovies {
-  box-sizing: border-box;
-  position: absolute;
-  margin-left: 21.5%;
-  margin-top: 5vw;
+.header {
+  margin-top: 0vw;
+}
 
-  .sort {
-    margin-left: 120%;
-    display: flex;
+.sidemenu {
+  background-color: #101731;
+  width: 21.5%;
+  float: left;
+}
 
-    button {
-      padding: 0.5vw 1vw;
-      background-color: white;
-      color: black;
-      margin-right: 1.5vw;
-      border-radius: 1vw;
-      cursor: pointer;
-      position: row;
-      z-index: 8;
-    }
+.ViewMovies {
+  color: black;
+  float: right;
+  width: 78.5%;
+  background-color: #0b021f;
+  height: 100%;
 
-    &.active {
-      background-color: black;
+
+  .movieCategory {
+    position: absolute;
+    margin-left: 2.5vw;
+    margin-top: 4vw;
+    background-color: #0b021f;
+
+    .subTitle {
+      font-size: 2vw;
+      color:  #ff2462;
+      margin-top: 3.5vw;
+      width: 20vw;
     }
   }
 
   .changeLanguage2 {
     color: white;
     margin-left: 73%;
-    margin-top: 42vw;
+    margin-top: 46vw;
     float: right;
     position: fixed;
     display: inline;
@@ -78,16 +84,26 @@
     }
   }
 
-  .movieCategory {
+  .arrange {
     position: absolute;
-    margin-left: 5vw;
+    margin-top: 9%;
+    display: flex;
+    margin-left: 28%;
 
-    .subTitle {
-      font-size: 2vw;
-      color:  #ff2462;
-      margin-top: 2vw;
-      width: 20vw;
-    }
+      button {
+        padding: 0.5vw 1vw;
+        background-color: white;
+        color: black;
+        margin-right: 1.5vw;
+        border-radius: 1vw;
+        cursor: pointer;
+        position: row;
+      }
+
+      &.active {
+        background-color: black;
+      }
+
   }
 
   .movieContainer {
@@ -96,6 +112,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    margin-top: 13vw;
 
 
     .movieContent {
@@ -107,6 +124,7 @@
       background-color: white;
       color: black;
       box-shadow: 0.2vw 0.2vw 0.2vw rgb(102, 101, 101);
+      cursor: pointer;
 
       b {
         padding-left: 1.5vw;
@@ -145,12 +163,18 @@
         }
       }
     }
+
+    .movieContent:hover {
+      border: 0.3vw solid #3498DB ;
+      width: 13.4vw;
+      min-height: 18vw;
+
+      .poster {
+        margin-left: 0.2vw;
+        margin-top: 0.1vw;
+      }
+    }
+
+
   }
-
-
-
-
-
-
-
 }

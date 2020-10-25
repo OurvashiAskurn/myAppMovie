@@ -1,4 +1,5 @@
 <div class="header">
+
   <div class="container1">
     <a href="index.html">MEDIA APP</a>
   </div>
@@ -6,6 +7,13 @@
   <div class="container2">
     <span><app-search-bar (emittedTerm)="getSearchTerm($event)"></app-search-bar></span>
   </div>
+<!--
+<div class="menus">
+    <div class="menu-item" *ngFor="let menu of menus" (click)="selectMenu(menu.id)">
+      <div class="menu-title">{{ menu.name | translate }}</div>
+    </div>
+  </div>
+  <app-settings></app-settings>-->
 
   <div class="container3">
     <div class="dropbtn">
@@ -16,6 +24,11 @@
         <a (click)="logout()">{{ 'header.logout' | translate }} </a>
       </div>
     </div>
-
   </div>
+
+
 </div>
+
+
+
+

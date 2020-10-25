@@ -12,13 +12,12 @@ import { MovieService } from 'src/app/providers/movie.service';
 export class MovieListComponent implements OnInit {
 
   searchTerm: any;
-  displayValue: any;
+  displayValue: String;
   movies: Movie[];
   filterList: Movie[] ;
   movieList: Movie[];
 
   constructor(private _moviesService: MovieService, private _router: Router, private translate: TranslateService) {
-    this.displayValue = '';
     this.searchTerm = '';
     this.movies = [];
     this.movieList = [];
@@ -26,16 +25,25 @@ export class MovieListComponent implements OnInit {
 
     this.translate.setDefaultLang('en');
 
-    if (this._router.url.startsWith('/coming_soon')) {
-      this.getComingSoonMovies();
-    } else if (this._router.url.startsWith('/trending')) {
+    if (this._router.url.startsWith('/new_release')) {
+      this.getMovies();
+      this.displayValue = 'New Release';
+    }
+    else if (this._router.url.startsWith('/trending')) {
       this.getTrendingMovies();
-    } else if (this._router.url.startsWith('/favourites')) {
+      this.displayValue = 'Trending';
+    }
+    else if (this._router.url.startsWith('/coming_soon')) {
+      this.getComingSoonMovies();
+      this.displayValue = 'Coming Soon';
+    }
+    else if (this._router.url.startsWith('/favourites')) {
       this.getMovies();
-    } else if (this._router.url.startsWith('/watch_later')) {
+      this.displayValue = 'Favourites';
+    }
+    else if (this._router.url.startsWith('/watch_later')) {
       this.getMovies();
-    } else if (this._router.url.startsWith('/new_release')){
-      this.getMovies();
+      this.displayValue = 'Watch Later';
     }
   }
 
@@ -54,23 +62,50 @@ export class MovieListComponent implements OnInit {
 
   ngOnInit() {
     this.searchTerm = '';
-    if (this._router.url.startsWith('/coming_soon')) {
-      this.getComingSoonMovies();
-    } else if (this._router.url.startsWith('/trending')) {
+    if (this._router.url.startsWith('/new_release')) {
+      this.getMovies();
+      this.displayValue = 'New Release';
+    }
+    else if (this._router.url.startsWith('/trending')) {
       this.getTrendingMovies();
-    } else if (this._router.url.startsWith('/favourites')) {
+      this.displayValue = 'Trending';
+    }
+    else if (this._router.url.startsWith('/coming_soon')) {
+      this.getComingSoonMovies();
+      this.displayValue = 'Coming Soon';
+    }
+    else if (this._router.url.startsWith('/favourites')) {
       this.getMovies();
-    } else if (this._router.url.startsWith('/watch_later')) {
+      this.displayValue = 'Favourites';
+    }
+    else if (this._router.url.startsWith('/watch_later')) {
       this.getMovies();
-    } else if (this._router.url.startsWith('/new_release')){
-      this.getMovies();
+      this.displayValue = 'Watch Later';
     }
   }
 
-    onValueEmitted(valueEmitted: string) {
-      this.displayValue = valueEmitted;
 
-    }
+
+
+ //get id from side menu and extend url
+ selectMenu(id: number) {
+  if (id === 4) {
+    this._router.navigateByUrl('/watch_later').then(() => {
+    });
+  } else if (id === 1) {
+    this._router.navigateByUrl('/trending').then(() => {
+    });
+  } else if (id === 2) {
+    this._router.navigateByUrl('/coming_soon').then(() => {
+    });
+  } else if (id === 3) {
+    this._router.navigateByUrl('/favourites').then(() => {
+    });
+  } else {
+    this._router.navigateByUrl('/new_release').then(() => {
+    });
+  }
+}
 
   getValue(event: any) {
     //console.log(event);
@@ -85,38 +120,25 @@ export class MovieListComponent implements OnInit {
     }​​​​
   }
 
-  filterBy(filter: string) {
-    if (filter === 'all') {
+  filterBy(fil: string) {
+    if (fil === 'all') {
       this.filterList = this.movies;
-      this.movieList = this.movies
       console.log('all');
-
-    } else if (filter === 'positive'){
+    }
+    else if (fil === 'positive') {
       this.filterList = this.movies.filter(movie => {​​​​
         return parseInt(movie.rating) > 8;
       }​​​​);
-      this.movieList = this.movies.filter(movie => {​​​​
-        return parseInt(movie.rating) > 6;
-      }​​​​);
-      console.log('positive');
-
-    } else if (filter === 'neutral'){
+    }
+    else if (fil === 'neutral') {
       this.filterList = this.movies.filter(movie => {​​​​
-        return (parseInt(movie.rating) > 7 && parseInt(movie.rating) < 9);
+        return parseInt(movie.rating) < 9;
       }​​​​);
-      this.movieList = this.movies.filter(movie => {​​​​
-        return (parseInt(movie.rating) > 4 && parseInt(movie.rating) < 6);
-      }​​​​);
-      console.log('neutral');
-
-    } else if (filter === 'negative'){
+    }
+    else if (fil === 'negative') {
       this.filterList = this.movies.filter(movie => {​​​​
-        return parseInt(movie.rating) < 8 ;
+        return parseInt(movie.rating) > 8;
       }​​​​);
-      this.movieList = this.movies.filter(movie => {​​​​
-        return parseInt(movie.rating) < 5 ;
-      }​​​​);
-      console.log('negative');
     }
   }
 

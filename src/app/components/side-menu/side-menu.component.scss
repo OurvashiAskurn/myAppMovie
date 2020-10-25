@@ -1,4 +1,7 @@
 .menu-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
   padding: 1vw;
   margin-top: 3.7%;
   margin-left: -0.5vw;
@@ -17,7 +20,7 @@
 
 
 
-      &.active {
+      &.selected {
              background-color: #1d2959;
              color: red;
       }
@@ -27,6 +30,5 @@
     background-color:  #1d2959;
   }
 
+
 }
-
-
