@@ -127,18 +127,21 @@ export class MovieListComponent implements OnInit {
     }
     else if (fil === 'positive') {
       this.filterList = this.movies.filter(movie => {​​​​
-        return parseInt(movie.rating) > 8;
+        return parseInt(movie.rating) > 5;
       }​​​​);
+      console.log('positive');
     }
     else if (fil === 'neutral') {
       this.filterList = this.movies.filter(movie => {​​​​
-        return parseInt(movie.rating) < 9;
+        return parseInt(movie.rating) === 5;
       }​​​​);
+      console.log('neutral');
     }
     else if (fil === 'negative') {
       this.filterList = this.movies.filter(movie => {​​​​
-        return parseInt(movie.rating) > 8;
+        return parseInt(movie.rating) < 5;
       }​​​​);
+      console.log('negative');
     }
   }
 
@@ -148,7 +151,6 @@ export class MovieListComponent implements OnInit {
   getMovies() {
     this._moviesService.getMoviesList().subscribe((data: any) => {
      // console.log(data);
-
       data.forEach(m => {
         var movie = new Movie();
         movie.title = m.title;
@@ -163,14 +165,38 @@ export class MovieListComponent implements OnInit {
   }
 
   getComingSoonMovies() {
-    this._moviesService.fetchComingSoonList().subscribe(() => {
-      this.movies = this._moviesService.movieList;
+    this._moviesService.fetchComingSoonList().subscribe((data: any) => {
+      data.results.forEach(m => {
+        var movie = new Movie();
+        movie.id = m.id;
+        movie.title = m.original_title;
+        movie.imageUrl = m.poster_path;
+        movie.rating = m.vote_average;
+        //this.movies.push(movie);
+        this.filterList.push(movie);
+      });
+      this.filterList = this.movies;
     });
   }
 
-  getTrendingMovies() {
+  /*getTrendingMovies() {
     this._moviesService.fetchTrendingList().subscribe(() => {
       this.movies = this._moviesService.movieList;
+    });
+  }*/
+
+  getTrendingMovies() {
+    this._moviesService.fetchTrendingList().subscribe((data: any) => {
+      data.results.forEach(m => {
+        var movie = new Movie();
+        movie.id = m.id;
+        movie.title = m.original_title;
+        movie.imageUrl = m.poster_path;
+        movie.rating = m.vote_average;
+        //this.movies.push(movie);
+        this.filterList.push(movie);
+      });
+      this.filterList = this.movies;
     });
   }
 
