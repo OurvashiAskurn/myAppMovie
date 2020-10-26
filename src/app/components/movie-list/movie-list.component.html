@@ -23,10 +23,10 @@
   </div>
 
   <div class="arrange">
-      <button (click)="filterBy('all')" [class.active]="filteredBy === 'all'">All</button>
-      <button (click)="filterBy('positive')" [class.active]="filteredBy === 'positive'">Positive</button>
-      <button  (click)="filterBy('neutral')" [class.active]="filteredBy === 'neutral'">Neutral</button>
-      <button  (click)="filterBy('negative')" [class.active]="filteredBy === 'negative'">Negative</button>
+      <button (click)="filterBy('all')" [class.active]="filteredBy === 'all'">{{ 'movie_list.sort.option_1' | translate }}</button>
+      <button (click)="filterBy('positive')" [class.active]="filteredBy === 'positive'">{{ 'movie_list.sort.option_2' | translate }}</button>
+      <button  (click)="filterBy('neutral')" [class.active]="filteredBy === 'neutral'">{{ 'movie_list.sort.option_3' | translate }}</button>
+      <button  (click)="filterBy('negative')" [class.active]="filteredBy === 'negative'">{{ 'movie_list.sort.option_4' | translate }}</button>
   </div>
 
   <div *ngIf="displayValue === 'New Release' || displayValue === 'Favourites'  || displayValue === 'Watch Later' " class="movieContainer">

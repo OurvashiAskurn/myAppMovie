@@ -18,7 +18,13 @@
 
   "movie_list": {
       "genre": "Genre",
-      "rating": "Note"
+      "rating": "Note",
+      "sort": {
+        "option_1": "Tous",
+        "option_2": "Positive",
+        "option_3": "Neutre",
+        "option_4": "Critique"
+      }
   },
 
   "header" : {
