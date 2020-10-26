@@ -29,6 +29,7 @@
     -webkit-animation-duration: 0.8s;
     animation-name: animate;
     animation-duration: 0.8s;
+    box-sizing: border-box;
 
       /* Add Animation */
       @-webkit-keyframes animate{
@@ -54,6 +55,54 @@
       color: #000;
       text-decoration: none;
       cursor: pointer;
+    }
+
+    .display:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    .left {
+      float: left;
+      width: 35%;
+
+      .poster {
+        width: 17vw;
+        border: 0.15vw solid grey;
+      }
+    }
+
+    .right {
+      float: left;
+      width: 65%;
+
+      .title {
+        font-weight: bolder;
+        font-size: 2vw;
+      }
+
+      .rating {
+      background-color: #fa326b;
+      padding: 0.5vw 1.8vw 0.4vw 1vw;
+      border-radius: 0.5vw ;
+      margin-left: 1.5vw;
+      margin-top: -0.7vw;
+      position: absolute;
+
+        .rate {
+          color: white;
+          font-size: 1.2vw;
+        }
+
+        .star img{
+           width: 1vw;
+           position: absolute;
+           margin-left: 0.3vw;
+        }
+      }
+
+
     }
 
   }

@@ -3,10 +3,24 @@
 
   <!-- Modal content -->
   <div class="modal-content">
-    <span class="close" (click)="close()" >&times;</span>
-    <div class="title"><h2>{{ movie.title }}</h2></div><br>
-    <b><u>{{ 'movie_detail.overview' | translate }}:</u></b><br><br>
-    <div class="details"> {{ movie.overview }}</div>
-  </div>
+    <span class="close" (click)="close()" title="Close">&times;</span>
+
+    <div class="display">
+
+      <div class="left">
+        <img src="https://image.tmdb.org/t/p/w300{{ movie.imageUrl }}" alt="Not available" class="poster">
+      </div>
+
+      <div class="right">
+          <span class="title">{{ movie.title }}</span><span class="rating"><span class="rate">{{ movie.rating }}</span><span class="star"><img src="https://www.clker.com/cliparts/p/i/0/Y/B/m/large-yellow-star-md.png" alt=""></span></span><br><br>
+              <b><u>{{ 'movie_detail.overview' | translate }}:</u></b><br><br>
+              <div class="details"> {{ movie.overview }}</div>
+          </div>
+      </div>
+
+    </div>
+
+
+
 
 </div>

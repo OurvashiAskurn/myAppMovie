@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import Movie from 'src/app/dto/movie';
 import { MovieService } from 'src/app/providers/movie.service';
 
@@ -13,11 +14,12 @@ export class MovieDetailComponent implements OnInit {
   movieId: any;
   movie: Movie;
 
-  constructor(private _route: ActivatedRoute, private  _movieService: MovieService, private _router: Router) {
+  constructor(private _route: ActivatedRoute, private  _movieService: MovieService, private _router: Router, private _translate: TranslateService) {
     this.movie = new Movie();
     this.movieId = this._route.snapshot.paramMap.get('id');
    // console.log(this.movieId);
     this.getMovieById();
+    this._translate.setDefaultLang('en');
   }
 
   ngOnInit() {

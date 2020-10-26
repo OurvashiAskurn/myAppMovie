@@ -73,6 +73,7 @@ export class MovieService {
           movie.title = data.original_title;
           movie.imageUrl = data.poster_path;
           movie.overview = data.overview;
+          movie.rating = data.vote_average;
           this._movie = movie;
         }
       }));
