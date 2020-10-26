@@ -98,10 +98,12 @@
         border-radius: 1vw;
         cursor: pointer;
         position: row;
+        border: 0vw;
+        outline: none;
 
         &.active {
-          background-color: #1d2959;
-          color: red;
+          background-color: #fa326b;
+          color: white;
         }
       }
 

@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { filter } from 'rxjs/operators';
 import Movie from 'src/app/dto/movie';
 import { MovieService } from 'src/app/providers/movie.service';
 
@@ -16,12 +17,14 @@ export class MovieListComponent implements OnInit {
   movies: Movie[];
   filterList: Movie[] ;
   movieList: Movie[];
+  @Input('filteredBy') filteredBy: string;
 
   constructor(private _moviesService: MovieService, private _router: Router, private translate: TranslateService) {
     this.searchTerm = '';
     this.movies = [];
     this.movieList = [];
     this.filterList = [];
+    this.filteredBy = 'all';
 
     this.translate.setDefaultLang('en');
 
@@ -121,6 +124,7 @@ export class MovieListComponent implements OnInit {
   }
 
   filterBy(fil: string) {
+    this.filteredBy = fil;
     if (fil === 'all') {
       this.filterList = this.movies;
       console.log('all');
@@ -166,6 +170,7 @@ export class MovieListComponent implements OnInit {
 
   getComingSoonMovies() {
     this._moviesService.fetchComingSoonList().subscribe((data: any) => {
+      console.log(data);
       data.results.forEach(m => {
         var movie = new Movie();
         movie.id = m.id;

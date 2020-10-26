@@ -23,10 +23,10 @@
   </div>
 
   <div class="arrange">
-      <button (click)="filterBy('all')" [class.active]="filterBy === 'all'">All</button>
-      <button (click)="filterBy('positive')" [class.active]="filterBy === 'positive'">Positive</button>
-      <button  (click)="filterBy('neutral')" [class.active]="filterBy === 'neutral'">Neutral</button>
-      <button  (click)="filterBy('negative')" [class.active]="filterBy === 'negative'">Negative</button>
+      <button (click)="filterBy('all')" [class.active]="filteredBy === 'all'">All</button>
+      <button (click)="filterBy('positive')" [class.active]="filteredBy === 'positive'">Positive</button>
+      <button  (click)="filterBy('neutral')" [class.active]="filteredBy === 'neutral'">Neutral</button>
+      <button  (click)="filterBy('negative')" [class.active]="filteredBy === 'negative'">Negative</button>
   </div>
 
   <div *ngIf="displayValue === 'New Release' || displayValue === 'Favourites'  || displayValue === 'Watch Later' " class="movieContainer">
